@@ -230,7 +230,11 @@
                     <li><a href="#investment" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Investment</a></li>
                     <li><a href="#gallery" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Gallery</a></li>
                     <li><a href="#analysis" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Analysis</a></li>
-                    <li><a href="#brochure" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Brochure</a></li>
+                    <li>
+                        <a href="#" id="downloadBrochureNavBtn" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">
+                            Download Brochure
+                        </a>
+                    </li>
                 </ul>
                 
                 <!-- CTA Button -->
@@ -259,7 +263,11 @@
                     <li><a href="#investment" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Investment</a></li>
                     <li><a href="#gallery" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Gallery</a></li>
                     <li><a href="#analysis" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Analysis</a></li>
-                    <li><a href="#brochure" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Download Brochure</a></li>
+                    <li>
+                        <a href="#" id="downloadBrochureNavBtnMobile" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">
+                            Download Brochure
+                        </a>
+                    </li>
                     <li class="mt-3 px-4 pb-4">
                         <button class="w-full bg-gradient-to-r from-Hayat-gold to-Hayat-gold/90 hover:from-Hayat-gold/90 hover:to-Hayat-gold text-white px-6 py-3 rounded items-center justify-center gap-2 font-medium text-sm transition-all shadow-md hover:shadow-lg flex open-enquire-modal">
                             <i class="fas fa-phone-alt text-xs mr-2"></i>
@@ -1066,12 +1074,17 @@
                         <p class="text-white/90 text-lg">Down Payment</p>
                     </div>
                     <div class="p-6 text-center">
-                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hand-holding-usd text-Hayat-gold text-2xl"></i>
-                        </div>
-                        <p class="text-gray-600">Initial booking amount to secure your property</p>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="font-medium text-Hayat-dark">Due on signing</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-3 px-4 text-left">Initial booking amount to secure your property</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Due on signing</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -1083,29 +1096,39 @@
                         <p class="text-white/90 text-lg">During Construction</p>
                     </div>
                     <div class="p-6 text-center">
-                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hard-hat text-Hayat-gold text-2xl"></i>
-                        </div>
-                        <p class="text-gray-600">Installments spread throughout the construction period</p>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="font-medium text-Hayat-dark">Quarterly payments</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4 text-left">Installments spread throughout the construction period</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Quarterly payments</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
                 
                 <!-- On Completion Card -->
                 <div class="bg-white rounded-xl shadow-premium overflow-hidden transform transition-all hover:-translate-y-2 duration-300 border border-gray-100 h-full">
-                    <div class="bg-gradient-to-r from-Hayat-gold/90 to-Hayat-gold p-6 text-center">
+                    <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 p-6 text-center">
                         <h3 class="text-5xl font-bold text-white mb-1">20%</h3>
                         <p class="text-white/90 text-lg">On Completion</p>
                     </div>
                     <div class="p-6 text-center">
-                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-key text-Hayat-gold text-2xl"></i>
-                        </div>
-                        <p class="text-gray-600">Payment due upon project completion and handover</p>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="font-medium text-Hayat-dark">Due May 2028</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4 text-left">Payment due upon project completion and handover</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Due May 2028</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -1117,12 +1140,17 @@
                         <p class="text-white/90 text-lg">After Completion</p>
                     </div>
                     <div class="p-6 text-center">
-                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-home text-Hayat-gold text-2xl"></i>
-                        </div>
-                        <p class="text-gray-600">Post-handover payments distributed over time</p>
-                        <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="font-medium text-Hayat-dark">Over 24 months</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4 text-left">Post-handover payments distributed over time</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Over 24 months</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -1144,7 +1172,7 @@
     </section>
 
     <!-- Download Brochure Section -->
-    <section id="brochure" class="py-16 md:py-20 bg-gradient-to-r from-Hayat-dark to-Hayat-green mobile-py">
+    <!-- <section id="brochure" class="py-16 md:py-20 bg-gradient-to-r from-Hayat-dark to-Hayat-green mobile-py">
         <div class="max-w-4xl mx-auto px-4 sm:px-5 text-center text-white">
             <h2 class="text-3xl md:text-5xl mb-6 md:mb-8 section-heading">Download Project Brochure</h2>
             <p class="text-lg md:text-xl mb-10 md:mb-12 opacity-90">Get detailed information about floor plans, pricing, amenities, and more</p>
@@ -1178,7 +1206,7 @@
             
             <p class="text-sm opacity-70">By downloading, you agree to receive updates about this project</p>
         </div>
-    </section>
+    </section> -->
 
     <!-- Featured Properties -->
     <section id="properties" class="py-16 md:py-20 bg-gray-50 mobile-py">
@@ -1351,9 +1379,11 @@
                     <!-- Location Benefits Card -->
                     <div class="bg-white rounded-xl shadow-premium overflow-hidden">
                         <div class="bg-Hayat-dark text-white py-4 px-6">
-                            <h3 class="text-xl font-display">RIGHT IN THE HEART AND CONNECTED</h3>
-                        </div>
-                        <div class="p-6">
+                            <h3 class="text-xl font-display font-medium mb-8 relative inline-block">
+                                RIGHT IN THE HEART AND CONNECTED
+                                <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-Hayat-gold"></span>
+                            </h3>
+                            
                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                 <div class="lg:col-span-1">
                                     <p class="text-gray-700 mb-4">
@@ -1516,9 +1546,7 @@
         </div>
     </section>
             
-        </div>
-    </section>
-            
+    </div>  
     <!-- Services Section
     <section id="services" class="py-16 md:py-20 bg-gray-50 mobile-py">
         <div class="max-w-6xl mx-auto px-4 sm:px-5"></div>
@@ -1549,7 +1577,7 @@
     </section> -->
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-20 bg-white mobile-py">
+    <section id="contact" class=" bg-white mobile-py">
         <div class="max-w-6xl mx-auto px-4 sm:px-5">
             <div class="text-center mb-12 md:mb-16">
                 <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">Get In Touch</span>
@@ -1631,24 +1659,24 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <label class="block mb-2 text-Hayat-dark font-medium text-sm">Full Name <span class="text-red-500">*</span></label>
-                                    <input type="text" placeholder="John Smith" required class="w-full px-5 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                                    <input type="text" placeholder="John Smith" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                                 </div>
                                 
                                 <div class="relative">
                                     <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email Address <span class="text-red-500">*</span></label>
-                                    <input type="email" placeholder="email@example.com" required class="w-full px-5 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                                    <input type="email" placeholder="you@email.com" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                                 </div>
                             </div>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone Number</label>
-                                    <input id="contact-phone" type="tel" placeholder="+971 55 123 4567" class="w-full px-5 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                                    <input id="contact-phone" type="tel" placeholder="+971 55 123 4567" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                                 </div>
                                 
                                 <div class="relative">
                                     <label class="block mb-2 text-Hayat-dark font-medium text-sm">Subject</label>
-                                    <select class="w-full px-5 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                                    <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                                         <option value="" selected disabled>Please select</option>
                                         <option value="General Inquiry">General Inquiry</option>
                                         <option value="Property Information">Property Information</option>
@@ -1661,7 +1689,7 @@
                             
                             <div class="relative">
                                 <label class="block mb-2 text-Hayat-dark font-medium text-sm">Message <span class="text-red-500">*</span></label>
-                                <textarea placeholder="Your message here..." rows="5" required class="w-full px-5 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all resize-none"></textarea>
+                                <textarea placeholder="Your message here..." rows="5" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all resize-none"></textarea>
                             </div>
                             
                             <div class="mb-4">
@@ -1699,7 +1727,15 @@
         
         <!-- Full Width Map -->
         <div class="w-full h-[500px] relative">
-            <div id="map" class="w-full h-full"></div>
+            <!-- Replace the div#map with an iframe for Google Maps -->
+            <iframe
+                class="w-full h-full"
+                style="border:0;"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.029781688889!2d55.41871107538298!3d25.34629997761359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d8e7b7b7b7b%3A0x123456789abcdef!2s123%20Real%20Estate%20Ave%2C%20Business%20District%2C%20Dubai%2C%20UAE!5e0!3m2!1sen!2sae!4v1710000000000!5m2!1sen!2sae">
+            </iframe>
             <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-sm">
                 <h3 class="text-xl font-display font-medium mb-2 text-Hayat-dark">Visit Our Office</h3>
                 <p class="text-sm text-gray-600">123 Real Estate Ave, Business District, Dubai, UAE</p>
@@ -1854,7 +1890,7 @@
 
     <!-- Enquire Now Modal -->
     <div id="enquireModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay" id="enquireModalOverlay"></div>
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 transition-all duration-300 scale-100 opacity-100" id="enquireModalContent" style="box-shadow:0 8px 40px 0 rgba(0,0,0,0.18);">
             <button class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-gray-100 hover:bg-gray-200 transition-colors w-9 h-9 rounded-full flex items-center justify-center modal-close" id="enquireModalClose" aria-label="Close">
                 <i class="fas fa-times text-lg"></i>
@@ -1867,20 +1903,59 @@
                 <form class="space-y-5">
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name <span class="text-red-500">*</span></label>
-                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                        <input type="text" placeholder="John Deo" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span class="text-red-500">*</span></label>
-                        <input type="email" placeholder="you@email.com" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                        <input type="email" placeholder="johndeo@gmail.com" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
-                        <input id="enquire-popup-phone" type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                        <input id="enquire-popup-phone" type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors">
                         Enquire Now
                     </button>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brochure Download Modal -->
+    <div id="brochureModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 transition-all duration-300 scale-100 opacity-100">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-gray-100 hover:bg-gray-200 transition-colors w-9 h-9 rounded-full flex items-center justify-center modal-close" id="brochureModalClose" aria-label="Close">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white p-6 rounded-t-2xl text-center">
+                <h2 class="text-2xl font-display font-semibold mb-1">Download Brochure</h2>
+                <p class="text-sm opacity-80">Get the full project brochure after submitting your details</p>
+            </div>
+            <div class="p-8">
+                <form id="brochureForm" class="space-y-5">
+                    <div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span class="text-red-500">*</span></label>
+                        <input type="email" name="email" required placeholder="you@email.com" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
+                        <input id="brochure-phone" name="phone" type="tel" required placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                    </div>
+                    <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors">
+                        Download Brochure
+                    </button>
+                </form>
+                <div id="brochureSuccess" class="hidden text-center mt-6">
+                    <p class="text-Hayat-dark font-medium mb-4">Thank you! Your download will start shortly.</p>
+                    <a id="brochurePdfLink" href="./Assets/HAYATbyDubaiSouth-brochure.pdf" download class="inline-block bg-Hayat-gold hover:bg-Hayat-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                        Click here if your download does not start
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1916,6 +1991,53 @@
                 utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
             });
         }
+        // Brochure Modal logic
+        function openBrochureModal() {
+            document.getElementById('brochureModal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+        function closeBrochureModal() {
+            document.getElementById('brochureModal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            // Reset form and success message
+            document.getElementById('brochureForm').reset();
+            document.getElementById('brochureForm').classList.remove('hidden');
+            document.getElementById('brochureSuccess').classList.add('hidden');
+        }
+        document.getElementById('downloadBrochureNavBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            openBrochureModal();
+        });
+        document.getElementById('downloadBrochureNavBtnMobile')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            openBrochureModal();
+        });
+        document.getElementById('brochureModalClose')?.addEventListener('click', closeBrochureModal);
+        document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', closeBrochureModal);
+
+        // Initialize intl-tel-input for brochure form
+        var brochurePhone = document.getElementById('brochure-phone');
+        if (brochurePhone && window.intlTelInput) {
+            window.intlTelInput(brochurePhone, {
+                initialCountry: "ae",
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+            });
+        }
+
+        // Brochure form submit handler
+        document.getElementById('brochureForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Hide form, show success, trigger download
+            document.getElementById('brochureForm').classList.add('hidden');
+            document.getElementById('brochureSuccess').classList.remove('hidden');
+            // Start download automatically
+            setTimeout(function() {
+                // Update the href to the correct path before triggering click
+                var link = document.getElementById('brochurePdfLink');
+                link.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
+                link.click();
+            }, 500);
+        });
     });
     </script>
     
@@ -1986,8 +2108,6 @@
             });
         }
     </script>
-    
-    <!-- Google Maps API with callback to initMap -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 </body>
 </html>
