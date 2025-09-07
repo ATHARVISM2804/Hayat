@@ -199,7 +199,14 @@
         body.overflow-hidden {
             overflow: hidden;
         }
+        
+        /* Ensure intl-tel-input dropdown is always visible above other elements */
+        .iti {
+            z-index: 1050 !important;
+        }
     </style>
+    <!-- Add intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css"/>
 </head>
 <body class="font-sans text-gray-800 leading-relaxed">
     <!-- Header -->
@@ -254,7 +261,7 @@
                     <li><a href="#analysis" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Analysis</a></li>
                     <li><a href="#brochure" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Download Brochure</a></li>
                     <li class="mt-3 px-4 pb-4">
-                        <button class="w-full bg-gradient-to-r from-Hayat-gold to-Hayat-gold/90 hover:from-Hayat-gold/90 hover:to-Hayat-gold text-white px-6 py-3 rounded items-center justify-center gap-2 font-medium text-sm transition-all shadow-md hover:shadow-lg flex">
+                        <button class="w-full bg-gradient-to-r from-Hayat-gold to-Hayat-gold/90 hover:from-Hayat-gold/90 hover:to-Hayat-gold text-white px-6 py-3 rounded items-center justify-center gap-2 font-medium text-sm transition-all shadow-md hover:shadow-lg flex open-enquire-modal">
                             <i class="fas fa-phone-alt text-xs mr-2"></i>
                             <span>GET IN TOUCH</span>
                         </button>
@@ -267,9 +274,9 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen relative flex items-center pt-24 md:pt-20" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop') center/cover;">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative">
-            <div class="grid grid-cols-1 xl:grid-cols-[320px_1fr_380px] gap-8 items-center min-h-[calc(100vh-80px)]">
+            <div class="grid grid-cols-1 xl:grid-cols-[400px_1fr_400px] gap-8 items-start min-h-[calc(100vh-80px)]">
                 <!-- Left Property Info Card -->
-                <div class="bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-premium self-start mt-5 mx-auto md:mx-0 w-full max-w-xs sm:max-w-sm gradient-border">
+                <div class="bg-white/95 backdrop-blur-md rounded-xl p-6 shadow-premium self-start mt-5 mx-auto md:mx-0 w-full max-w-sm gradient-border h-fit">
                     <div class="inline-block bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white px-4 py-2 rounded-full text-xs font-medium mb-6 max-w-full whitespace-normal break-words uppercase tracking-wider">Exclusive New Launch</div>
                     <h1 class="text-4xl font-bold font-display text-Hayat-dark mb-2 tracking-wide">ARADA Hayat 3</h1>
                     <p class="text-Hayat-green text-lg mb-2">At Sharjah</p>
@@ -304,11 +311,11 @@
                 </div>
 
                 <!-- Center Main Content -->
-                <div class="text-center text-white xl:col-start-2">
-                    <h1 class="text-5xl md:text-7xl xl:text-8xl font-light font-display text-white mb-2 tracking-wider animate-subtle mobile-hero-title" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Hayat</h1>
-                    <p class="text-lg md:text-xl mb-2 tracking-wide uppercase" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">A New Paradigm for Urban Living</p>
+                <div class="text-center text-white xl:col-start-2 flex flex-col justify-center min-h-[70vh]">
+                    <h1 class="text-5xl md:text-7xl xl:text-8xl font-light font-display text-white mb-4 tracking-wider animate-subtle mobile-hero-title" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Masaar</h1>
+                    <p class="text-lg md:text-xl mb-2 tracking-wide uppercase" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">A New Paradigm for Urban Living in the UAE</p>
                     <div class="w-16 h-1 bg-Hayat-gold mx-auto mb-10"></div>
-                    <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-8 py-4 rounded text-lg transition-all hover:-translate-y-1 backdrop-blur-md enquire-btn flex items-center gap-2 mx-auto" id="heroEnquireBtn">
+                    <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-8 py-4 rounded text-lg transition-all hover:-translate-y-1 backdrop-blur-md enquire-btn flex items-center gap-2 mx-auto open-enquire-modal" id="heroEnquireBtn">
                         Enquire Now 
                         <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </button>
@@ -322,30 +329,27 @@
                 </div>
 
                 <!-- Right Inquiry Form -->
-                <div class="bg-white/95 backdrop-blur-md rounded-xl shadow-premium self-start mt-5 w-full max-w-xs mx-auto sm:max-w-sm md:max-w-md xl:col-start-3 gradient-border">
+                <div class="bg-white/95 backdrop-blur-md rounded-xl shadow-premium self-start mt-5 w-full max-w-sm mx-auto xl:col-start-3 gradient-border h-fit">
                     <h3 class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white px-8 py-6 rounded-t-xl text-xl font-display font-medium">Enquire Now</h3>
                     <form class="p-8">
                         <div class="mb-6">
                             <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name *</label>
-                            <div class="relative">
+                            <div>
                                 <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                                 <input type="text" placeholder="John deo" required class="w-full px-4 py-3 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base">
                             </div>
                         </div>
                         <div class="mb-6">
                             <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email *</label>
-                            <div class="relative">
+                            <div>
                                 <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                                 <input type="email" placeholder="johndeo@gmail.com" required class="w-full px-4 py-3 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base">
                             </div>
                         </div>
                         <div class="mb-6">
                             <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone *</label>
-                            <div class="relative">
-                                <i class="fas fa-phone-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                                <input type="tel" placeholder="05 222 2222" required class="w-full px-4 py-3 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base pr-12">
-                                <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg">🇦🇪</span>
-                            </div>
+                            <!-- Remove .relative here to allow dropdown to overflow -->
+                            <input id="enquire-phone" type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-Hayat-dark to-Hayat-dark/90 hover:from-Hayat-dark/90 hover:to-Hayat-dark text-white py-4 rounded text-base font-medium transition-all shadow-md hover:shadow-lg">Enquire Now</button>
                     </form>
@@ -354,7 +358,7 @@
             
             <!-- Bottom Right Enquire Button -->
             <div class="fixed bottom-20 right-4 md:absolute md:bottom-8 md:right-8 z-20">
-                <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-4 md:px-6 py-2 md:py-3 rounded text-sm transition-all hover:-translate-y-1 backdrop-blur-md bottom-enquire-btn flex items-center gap-2" id="floatingEnquireBtn">
+                <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-4 md:px-6 py-2 md:py-3 rounded text-sm transition-all hover:-translate-y-1 backdrop-blur-md bottom-enquire-btn flex items-center gap-2 open-enquire-modal" id="floatingEnquireBtn">
                     Enquire Now 
                     <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                 </button>
@@ -1012,65 +1016,34 @@
 
     <!-- Investment Section -->
     <section id="investment" class="py-16 md:py-20 bg-Hayat-dark text-white mobile-py">
-        <div class="max-w-6xl mx-auto px-4 sm:px-5"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-5">
             <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 section-heading">Investment Opportunity</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 md:mb-16">
-                <div class="text-center">
-                    <div class="text-6xl font-bold text-Hayat-gold mb-4">15%</div>
-                    <h3 class="text-xl font-semibold mb-2">Expected ROI</h3>
-                    <p class="text-gray-300">Annual return on investment based on market analysis</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-Hayat-gold/10 rounded-lg p-6 text-center">
+                    <div class="text-3xl font-bold text-Hayat-gold mb-2">15%</div>
+                    <div class="font-medium mb-1">Expected ROI</div>
+                    <div class="text-sm text-gray-200">Annual return (estimate)</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-6xl font-bold text-Hayat-gold mb-4">25%</div>
-                    <h3 class="text-xl font-semibold mb-2">Capital Appreciation</h3>
-                    <p class="text-gray-300">Projected property value increase over 5 years</p>
+                <div class="bg-Hayat-gold/10 rounded-lg p-6 text-center">
+                    <div class="text-3xl font-bold text-Hayat-gold mb-2">25%</div>
+                    <div class="font-medium mb-1">Capital Appreciation</div>
+                    <div class="text-sm text-gray-200">Projected over 5 years</div>
                 </div>
-                <div class="text-center">
-                    <div class="text-6xl font-bold text-Hayat-gold mb-4">0%</div>
-                    <h3 class="text-xl font-semibold mb-2">Service Charges</h3>
-                    <p class="text-gray-300">No service charges for the first 2 years</p>
+                <div class="bg-Hayat-gold/10 rounded-lg p-6 text-center">
+                    <div class="text-3xl font-bold text-Hayat-gold mb-2">0%</div>
+                    <div class="font-medium mb-1">Service Charges</div>
+                    <div class="text-sm text-gray-200">First 2 years</div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h3 class="text-3xl mb-6 text-Hayat-gold">Why Invest in Hayat?</h3>
-                    <ul class="space-y-4 text-lg">
-                        <li class="flex items-center gap-3">
-                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
-                            Prime location with excellent connectivity
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
-                            Developed by award-winning Arada Developments
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
-                            Flexible payment plans with attractive terms
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
-                            Strong rental demand in the area
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
-                            UAE's growing real estate market
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-                    <h4 class="text-2xl mb-6 text-Hayat-gold">Investment Calculator</h4>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block mb-2">Property Value (AED)</label>
-                            <input type="number" placeholder="1,600,000" class="w-full p-3 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
-                        </div>
-                        <div>
-                            <label class="block mb-2">Investment Period (Years)</label>
-                            <input type="number" placeholder="5" class="w-full p-3 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
-                        </div>
-                        <button class="w-full bg-Hayat-gold hover:bg-Hayat-gold/80 text-white py-3 rounded font-semibold transition-colors">Calculate Returns</button>
-                    </div>
-                </div>
+            <div class="bg-white/10 p-6 rounded-xl text-white text-center">
+                <h3 class="text-2xl mb-4 text-Hayat-gold font-display">Why Invest in Hayat?</h3>
+                <ul class="space-y-2 text-base">
+                    <li>• Prime location with excellent connectivity</li>
+                    <li>• Developed by award-winning Arada Developments</li>
+                    <li>• Flexible payment plans</li>
+                    <li>• Strong rental demand in the area</li>
+                    <li>• UAE's growing real estate market</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1128,7 +1101,7 @@
                 
                 <div class="gallery-item h-96 bg-gradient-to-br from-Hayat-dark/30 to-Hayat-gold/30 rounded-xl overflow-hidden shadow-premium relative group" data-category="amenities">
                     <img src="./dubaisouthproperties.ae-1757233108963/gallery6.jpeg" alt="Fitness Center" class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-semibold mb-2">Fitness Center</h3>
                         <p class="text-white/80 text-sm">State-of-the-art gym equipment</p>
                     </div>
@@ -1481,6 +1454,23 @@
                     <input type="email" placeholder="Your Email" required class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base">
                     <input type="tel" placeholder="Your Phone" class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base">
                     <textarea placeholder="Your Message" rows="5" required class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base"></textarea>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">I am interested in:</label>
+                        <div class="flex flex-col gap-2">
+                            <label class="inline-flex items-center gap-2">
+                                <input type="radio" name="interest" value="3 Bedroom Townhouse" class="form-radio text-Hayat-gold">
+                                <span>3 Bedroom Townhouse</span>
+                            </label>
+                            <label class="inline-flex items-center gap-2">
+                                <input type="radio" name="interest" value="4 Bedroom Townhouse" class="form-radio text-Hayat-gold">
+                                <span>4 Bedroom Townhouse</span>
+                            </label>
+                            <label class="inline-flex items-center gap-2">
+                                <input type="radio" name="interest" value="5 Bedroom Townhouse" class="form-radio text-Hayat-gold">
+                                <span>5 Bedroom Townhouse</span>
+                            </label>
+                        </div>
+                    </div>
                     <button type="submit" class="bg-Hayat-dark hover:bg-gray-700 text-white py-4 rounded text-base transition-colors">Send Message</button>
                 </form>
             </div>
@@ -1631,38 +1621,29 @@
     <!-- Enquire Now Modal -->
     <div id="enquireModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
         <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay" id="enquireModalOverlay"></div>
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-xl relative z-10 transform transition-all scale-95 opacity-0" id="enquireModalContent">
-            <div class="absolute top-4 right-4 z-20">
-                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center" id="enquireModalClose">
-                    <i class="fas fa-times"></i>
-                </button>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 transition-all duration-300 scale-100 opacity-100" id="enquireModalContent" style="box-shadow:0 8px 40px 0 rgba(0,0,0,0.18);">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-gray-100 hover:bg-gray-200 transition-colors w-9 h-9 rounded-full flex items-center justify-center modal-close" id="enquireModalClose" aria-label="Close">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white p-6 rounded-t-2xl text-center">
+                <h2 class="text-2xl font-display font-semibold mb-1">Enquire Now</h2>
+                <p class="text-sm opacity-80">First 100 registrations will have special discounts</p>
             </div>
-
-            <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white p-6 rounded-t-xl">
-                <h2 class="text-2xl font-display font-medium">first 100 registrations will have special discounts</h2>
-            </div>
-
             <div class="p-8">
-                <form class="space-y-6">
-                    <div class="mb-4">
+                <form class="space-y-5">
+                    <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name <span class="text-red-500">*</span></label>
-                        <input type="text" placeholder="John deo" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base">
+                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                     </div>
-                    
-                    <div class="mb-4">
+                    <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span class="text-red-500">*</span></label>
-                        <input type="email" placeholder="johndeo@gmail.com" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base">
+                        <input type="email" placeholder="you@email.com" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                     </div>
-                    
-                    <div class="mb-4">
+                    <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
-                        <div class="relative">
-                            <input type="tel" placeholder="05 222 2222" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base pr-12">
-                            <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg">🇦🇪</span>
-                        </div>
+                        <input id="enquire-popup-phone" type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                     </div>
-                    
-                    <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-4 rounded font-medium text-lg transition-colors">
+                    <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors shadow-md hover:shadow-lg">
                         Enquire Now
                     </button>
                 </form>
@@ -1673,6 +1654,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="scripts.js"></script>
+    <!-- intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize intl-tel-input for popup (modal)
+        var enquirePopupPhone = document.getElementById('enquire-popup-phone');
+        if (enquirePopupPhone && window.intlTelInput) {
+            window.intlTelInput(enquirePopupPhone, {
+                initialCountry: "ae",
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+            });
+        }
+        // Initialize intl-tel-input for right inquiry form
+        var enquirePhone = document.getElementById('enquire-phone');
+        if (enquirePhone && window.intlTelInput) {
+            window.intlTelInput(enquirePhone, {
+                initialCountry: "ae",
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+            });
+        }
+        // Initialize intl-tel-input for contact page
+        var contactPhone = document.getElementById('contact-phone');
+        if (contactPhone && window.intlTelInput) {
+            window.intlTelInput(contactPhone, {
+                initialCountry: "ae",
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+            });
+        }
+    });
+    </script>
     
     <!-- Google Maps JavaScript API -->
     <script>
