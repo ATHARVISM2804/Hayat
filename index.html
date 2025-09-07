@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayat Real Estate - Premium Properties</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'Hayat-gold': '#c8a876',
+                        'Hayat-dark': '#2c3e50',
+                        'Hayat-green': '#7d8471',
+                        'Hayat-light-green': '#a8b896'
+                    },
+                    fontFamily: {
+                        'sans': ['Raleway', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif']
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 11px -3px rgba(0, 0, 0, 0.07)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-border {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 0.75rem;
+            border: 1px solid transparent;
+            background: linear-gradient(to right bottom, #c8a876, transparent) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+        
+        .animate-subtle {
+            animation: subtle-float 5s ease-in-out infinite;
+        }
+        
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .clipped-gold-underline {
+            position: relative;
+        }
+        
+        .clipped-gold-underline::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 3px;
+            bottom: -8px;
+            left: 30%;
+            background: #c8a876;
+        }
+        
+        .image-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-25deg);
+            transition: all 0.75s;
+        }
+        
+        .image-shine:hover::before {
+            left: 125%;
+        }
+        
+        .scroll-indicator {
+            animation: scroll-down 2s ease infinite;
+        }
+        
+        @keyframes scroll-down {
+            0%, 100% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(10px); opacity: 0.3; }
+        }
+        
+        /* Navbar specific styles */
+        @media (min-width: 1024px) {
+            .nav-items {
+                width: auto;
+                justify-content: center;
+                flex: 1;
+                margin: 0 2rem;
+            }
+            
+            .nav-item {
+                position: relative;
+                white-space: nowrap;
+                padding: 0.5rem 0;
+            }
+            
+            .nav-item::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #c8a876;
+                transition: width 0.3s ease;
+            }
+            
+            .nav-item:hover::after {
+                width: 100%;
+            }
+        }
+        
+        /* Mobile responsiveness improvements */
+        @media (max-width: 768px) {
+            .mobile-text-center {
+                text-align: center;
+            }
+            
+            .mobile-py {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+            
+            .mobile-px {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+            
+            .mobile-hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .section-heading {
+                font-size: 2.25rem;
+            }
+            
+            .mobile-full-width {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .mobile-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mobile-menu.active {
+                display: block;
+                animation: slideDown 0.3s ease forwards;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 leading-relaxed">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex items-center px-5 md:px-8 lg:px-12 py-4">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <div class="w-12 h-12 bg-gradient-to-br from-Hayat-dark to-Hayat-gold rounded-lg relative">
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-gradient-to-r from-white to-gray-200" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%)"></div>
+                    </div>
+                    <h2 class="text-Hayat-dark font-display text-3xl font-light tracking-wide">Hayat</h2>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden lg:flex items-center space-x-6 nav-items justify-center">
+                    <li><a href="#home" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Home</a></li>
+                    <li><a href="#masterplan" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Master Plan</a></li>
+                    <li><a href="#community" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Community</a></li>
+                    <li><a href="#accessibility" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Access</a></li>
+                    <li><a href="#investment" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Investment</a></li>
+                    <li><a href="#gallery" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Gallery</a></li>
+                    <li><a href="#analysis" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Analysis</a></li>
+                    <li><a href="#brochure" class="text-Hayat-green hover:text-Hayat-dark transition-colors text-sm font-medium uppercase tracking-wider py-2 nav-item">Brochure</a></li>
+                </ul>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block ml-auto flex-shrink-0">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/90 hover:from-Hayat-gold/90 hover:to-Hayat-gold text-white px-5 py-3 rounded flex items-center gap-2 font-medium text-sm transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+                        <i class="fas fa-phone-alt text-xs"></i>
+                        <span>GET IN TOUCH</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Navigation Toggle -->
+                <div class="lg:hidden flex flex-col cursor-pointer nav-toggle ml-auto">
+                    <span class="w-6 h-0.5 bg-gray-800 mb-1 transition-all"></span>
+                    <span class="w-6 h-0.5 bg-gray-800 mb-1 transition-all"></span>
+                    <span class="w-6 h-0.5 bg-gray-800 transition-all"></span>
+                </div>
+            </nav>
+            
+            <!-- Mobile Navigation Menu (Hidden by default) -->
+            <div class="lg:hidden hidden mobile-menu bg-white shadow-lg absolute left-0 right-0 top-full z-50 max-h-[80vh] overflow-y-auto">
+                <ul class="flex flex-col px-5 py-4">
+                    <li><a href="#home" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Home</a></li>
+                    <li><a href="#masterplan" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Master Plan</a></li>
+                    <li><a href="#community" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Community</a></li>
+                    <li><a href="#accessibility" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Accessibility</a></li>
+                    <li><a href="#investment" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Investment</a></li>
+                    <li><a href="#gallery" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Gallery</a></li>
+                    <li><a href="#analysis" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Analysis</a></li>
+                    <li><a href="#brochure" class="block py-3 px-4 hover:bg-gray-50 text-Hayat-dark font-medium rounded-lg mobile-nav-item">Download Brochure</a></li>
+                    <li class="mt-3 px-4 pb-4">
+                        <button class="w-full bg-gradient-to-r from-Hayat-gold to-Hayat-gold/90 hover:from-Hayat-gold/90 hover:to-Hayat-gold text-white px-6 py-3 rounded items-center justify-center gap-2 font-medium text-sm transition-all shadow-md hover:shadow-lg flex">
+                            <i class="fas fa-phone-alt text-xs mr-2"></i>
+                            <span>GET IN TOUCH</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen relative flex items-center pt-24 md:pt-20" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop') center/cover;">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative">
+            <div class="grid grid-cols-1 xl:grid-cols-[320px_1fr_380px] gap-8 items-center min-h-[calc(100vh-80px)]">
+                <!-- Left Property Info Card -->
+                <div class="bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-premium self-start mt-5 mx-auto md:mx-0 w-full max-w-xs sm:max-w-sm gradient-border">
+                    <div class="inline-block bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white px-4 py-2 rounded-full text-xs font-medium mb-6 max-w-full whitespace-normal break-words uppercase tracking-wider">Exclusive New Launch</div>
+                    <h1 class="text-4xl font-bold font-display text-Hayat-dark mb-2 tracking-wide">ARADA Hayat 3</h1>
+                    <p class="text-Hayat-green text-lg mb-2">At Sharjah</p>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-building text-xs text-Hayat-gold"></i>
+                        <p class="text-gray-600 text-sm">By Arada Developments</p>
+                    </div>
+                    <p class="text-Hayat-dark font-medium mb-8">Nature Inspired Community</p>
+                    
+                    <div class="mb-8">
+                        <h3 class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 text-white -mx-5 px-5 py-4 text-lg font-display font-medium mb-4">Payment Plan</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 py-2 border-l-4 border-Hayat-gold pl-4 hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-hand-holding-water text-Hayat-gold"></i>
+                                <span class="text-sm">5% downpayment</span>
+                            </div>
+                            <div class="flex items-center gap-4 py-2 border-l-4 border-Hayat-gold pl-4 hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-hard-hat text-Hayat-gold"></i>
+                                <span class="text-sm">30% during construction</span>
+                            </div>
+                            <div class="flex items-center gap-4 py-2 border-l-4 border-Hayat-gold pl-4 hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-home text-Hayat-gold"></i>
+                                <span class="text-sm">Rest 65% on Handover</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-6">
+                        <p class="text-gray-600 mb-2 text-sm">Luxury 2-6 Bedroom Townhouses and villas Starting from</p>
+                        <h2 class="text-Hayat-dark text-3xl font-bold font-display">1.6M AED</h2>
+                    </div>
+                </div>
+
+                <!-- Center Main Content -->
+                <div class="text-center text-white xl:col-start-2">
+                    <h1 class="text-5xl md:text-7xl xl:text-8xl font-light font-display text-white mb-2 tracking-wider animate-subtle mobile-hero-title" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Hayat</h1>
+                    <p class="text-lg md:text-xl mb-2 tracking-wide uppercase" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">A New Paradigm for Urban Living</p>
+                    <div class="w-16 h-1 bg-Hayat-gold mx-auto mb-10"></div>
+                    <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-8 py-4 rounded text-lg transition-all hover:-translate-y-1 backdrop-blur-md enquire-btn flex items-center gap-2 mx-auto">
+                        Enquire Now 
+                        <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+                    
+                    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white text-center hidden lg:block">
+                        <p class="text-sm mb-2 uppercase tracking-widest">Explore</p>
+                        <div class="w-8 h-8 mx-auto rounded-full border border-white/50 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-xs scroll-indicator"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Inquiry Form -->
+                <div class="bg-white/95 backdrop-blur-md rounded-xl shadow-premium self-start mt-5 w-full max-w-xs mx-auto sm:max-w-sm md:max-w-md xl:col-start-3 gradient-border">
+                    <h3 class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white px-8 py-6 rounded-t-xl text-xl font-display font-medium">Enquire Now</h3>
+                    <form class="p-8">
+                        <div class="mb-6">
+                            <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name *</label>
+                            <div class="relative">
+                                <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" placeholder="John deo" required class="w-full px-4 py-3 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email *</label>
+                            <div class="relative">
+                                <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input type="email" placeholder="johndeo@gmail.com" required class="w-full px-4 py-3 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone *</label>
+                            <div class="relative">
+                                <i class="fas fa-phone-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input type="tel" placeholder="05 222 2222" required class="w-full px-4 py-3 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-base pr-12">
+                                <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg">🇦🇪</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-Hayat-dark to-Hayat-dark/90 hover:from-Hayat-dark/90 hover:to-Hayat-dark text-white py-4 rounded text-base font-medium transition-all shadow-md hover:shadow-lg">Enquire Now</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Bottom Right Enquire Button -->
+            <div class="fixed bottom-20 right-4 md:absolute md:bottom-8 md:right-8 z-20">
+                <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-4 md:px-6 py-2 md:py-3 rounded text-sm transition-all hover:-translate-y-1 backdrop-blur-md bottom-enquire-btn flex items-center gap-2">
+                    Enquire Now 
+                    <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                </button>
+            </div>
+            
+            <!-- Property Stats Bar -->
+            <div class="hidden xl:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
+                <div class="grid grid-cols-4 bg-white shadow-premium rounded-lg w-full">
+                    <div class="p-4 text-center border-r border-gray-100">
+                        <p class="text-Hayat-gold text-3xl font-display font-bold">96%</p>
+                        <p class="text-sm text-gray-600">Return on Investment</p>
+                    </div>
+                    <div class="p-4 text-center border-r border-gray-100">
+                        <p class="text-Hayat-gold text-3xl font-display font-bold">24mo</p>
+                        <p class="text-sm text-gray-600">Construction Timeline</p>
+                    </div>
+                    <div class="p-4 text-center border-r border-gray-100">
+                        <p class="text-Hayat-gold text-3xl font-display font-bold">1,800+</p>
+                        <p class="text-sm text-gray-600">Units Available</p>
+                    </div>
+                    <div class="p-4 text-center">
+                        <p class="text-Hayat-gold text-3xl font-display font-bold">5 min</p>
+                        <p class="text-sm text-gray-600">From City Center</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Property Stats -->
+            <div class="mt-12 bg-white shadow-premium rounded-lg w-full xl:hidden grid grid-cols-2 mobile-stats">
+                <div class="p-4 text-center border-r border-b border-gray-100">
+                    <p class="text-Hayat-gold text-2xl md:text-3xl font-display font-bold">96%</p>
+                    <p class="text-xs md:text-sm text-gray-600">Return on Investment</p>
+                </div>
+                <div class="p-4 text-center border-b border-gray-100">
+                    <p class="text-Hayat-gold text-2xl md:text-3xl font-display font-bold">24mo</p>
+                    <p class="text-xs md:text-sm text-gray-600">Construction Timeline</p>
+                </div>
+                <div class="p-4 text-center border-r border-gray-100">
+                    <p class="text-Hayat-gold text-2xl md:text-3xl font-display font-bold">1,800+</p>
+                    <p class="text-xs md:text-sm text-gray-600">Units Available</p>
+                </div>
+                <div class="p-4 text-center">
+                    <p class="text-Hayat-gold text-2xl md:text-3xl font-display font-bold">5 min</p>
+                    <p class="text-xs md:text-sm text-gray-600">From City Center</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Plan Section -->
+    <section id="masterplan" class="py-16 md:py-24 bg-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">Our Vision</span>
+                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark clipped-gold-underline section-heading">Master Plan</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl mb-6 font-display text-Hayat-gold">Thoughtfully Designed Community</h3>
+                    <p class="text-lg mb-8 text-gray-600 leading-relaxed">Hayat is meticulously planned to create a harmonious balance between modern living and natural beauty. Our master plan encompasses residential areas, recreational facilities, and green spaces.</p>
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-Hayat-gold/10 text-Hayat-gold group-hover:bg-Hayat-gold group-hover:text-white transition-colors">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Over 50,000 trees and native plants</p>
+                                <p class="text-sm text-gray-500">Creating a sustainable ecosystem</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-Hayat-gold/10 text-Hayat-gold group-hover:bg-Hayat-gold group-hover:text-white transition-colors">
+                                <i class="fas fa-biking"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">19 km of cycling and jogging tracks</p>
+                                <p class="text-sm text-gray-500">Promoting healthy lifestyle choices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-Hayat-gold/10 text-Hayat-gold group-hover:bg-Hayat-gold group-hover:text-white transition-colors">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Central park and community gardens</p>
+                                <p class="text-sm text-gray-500">Fostering community connections</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-Hayat-gold/10 text-Hayat-gold group-hover:bg-Hayat-gold group-hover:text-white transition-colors">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Smart infrastructure and utilities</p>
+                                <p class="text-sm text-gray-500">Future-proofing your investment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-96 bg-gradient-to-br from-Hayat-gold/20 to-Hayat-green/20 rounded-xl flex items-center justify-center text-gray-600 text-xl relative gradient-border shadow-premium overflow-hidden image-shine">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-map-marked-alt text-6xl text-Hayat-gold/50"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <button class="bg-white text-Hayat-dark px-6 py-3 rounded-full flex items-center gap-2 font-medium">
+                            <i class="fas fa-play text-xs"></i>
+                            View Interactive Map
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-16 md:py-24 bg-gray-50 mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">Experience Luxury</span>
+                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark clipped-gold-underline section-heading">Community Features</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-xl shadow-premium text-center cursor-pointer hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border" data-modal="swimmingPoolModal">
+                    <div class="w-20 h-20 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-6">
+                        <i class="fas fa-swimming-pool text-3xl text-Hayat-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-4 text-Hayat-dark">Swimming Pools</h3>
+                    <p class="text-gray-600">Olympic-sized swimming pools with dedicated areas for children and adults</p>
+                    <div class="mt-6">
+                        <span class="text-Hayat-gold text-sm font-medium flex items-center justify-center gap-1">
+                            Discover More
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-premium text-center cursor-pointer hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border" data-modal="fitnessModal">
+                    <div class="w-20 h-20 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-6">
+                        <i class="fas fa-dumbbell text-3xl text-Hayat-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-4 text-Hayat-dark">Fitness Center</h3>
+                    <p class="text-gray-600">State-of-the-art gymnasium with modern equipment and personal trainers</p>
+                    <div class="mt-6">
+                        <span class="text-Hayat-gold text-sm font-medium flex items-center justify-center gap-1">
+                            Discover More
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-premium text-center cursor-pointer hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border" data-modal="restaurantsModal">
+                    <div class="w-20 h-20 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-6">
+                        <i class="fas fa-utensils text-3xl text-Hayat-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-4 text-Hayat-dark">Restaurants</h3>
+                    <p class="text-gray-600">Fine dining and casual restaurants offering international cuisines</p>
+                    <div class="mt-6">
+                        <span class="text-Hayat-gold text-sm font-medium flex items-center justify-center gap-1">
+                            Discover More
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-premium text-center cursor-pointer hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border" data-modal="retailModal">
+                    <div class="w-20 h-20 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-bag text-3xl text-Hayat-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-4 text-Hayat-dark">Retail Plaza</h3>
+                    <p class="text-gray-600">Shopping centers with boutiques, cafes, and essential services</p>
+                    <div class="mt-6">
+                        <span class="text-Hayat-gold text-sm font-medium flex items-center justify-center gap-1">
+                            Discover More
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-premium text-center cursor-pointer hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border" data-modal="medicalModal">
+                    <div class="w-20 h-20 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-6">
+                        <i class="fas fa-heartbeat text-3xl text-Hayat-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-4 text-Hayat-dark">Medical Center</h3>
+                    <p class="text-gray-600">24/7 medical facility with specialized healthcare services</p>
+                    <div class="mt-6">
+                        <span class="text-Hayat-gold text-sm font-medium flex items-center justify-center gap-1">
+                            Discover More
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-premium text-center cursor-pointer hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border" data-modal="educationModal">
+                    <div class="w-20 h-20 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-3xl text-Hayat-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-4 text-Hayat-dark">Educational Hub</h3>
+                    <p class="text-gray-600">Nurseries, schools, and educational centers within the community</p>
+                    <div class="mt-6">
+                        <span class="text-Hayat-gold text-sm font-medium flex items-center justify-center gap-1">
+                            Discover More
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-8 py-4 rounded-lg text-lg transition-all hover:-translate-y-1 shadow-md hover:shadow-lg flex items-center gap-2 mx-auto">
+                    <span>Explore All Amenities</span>
+                    <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Feature Modals -->
+    <div id="swimmingPoolModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="h-72 bg-gradient-to-r from-Hayat-gold/30 to-Hayat-green/30 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="text-6xl z-10 relative">
+                    <i class="fas fa-swimming-pool text-white"></i>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Swimming Pools</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Experience the ultimate in aquatic luxury with our meticulously designed swimming pools. Perfect for both serious swimmers and those looking to relax and cool off.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our Olympic-sized swimming pool is complemented by separate children's pools with water play features, and adults-only relaxation pools surrounded by cabanas and lounging areas.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Features</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Olympic-sized 50m lap pool</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Children's splash pad and shallow pool</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Adults-only infinity edge pool</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Heated pools for year-round enjoyment</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Services</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Professional lifeguards on duty</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Swimming lessons for all ages</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Poolside service from our cafe</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Private cabana rentals</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-6 py-3 rounded transition-all hover:-translate-y-1 modal-close shadow-md hover:shadow-lg">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="fitnessModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="h-72 bg-gradient-to-r from-Hayat-dark/30 to-Hayat-green/30 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="text-6xl z-10 relative">
+                    <i class="fas fa-dumbbell text-white"></i>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Fitness Center</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Our state-of-the-art fitness center is designed to inspire and motivate your workout routine. With premium equipment and expert trainers, achieving your fitness goals has never been more accessible.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The center features cardio zones, strength training areas, functional fitness spaces, and dedicated studios for classes ranging from yoga to high-intensity interval training.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Equipment</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Latest cardio machines with entertainment</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Comprehensive free weight section</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Dedicated stretching and functional areas</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Studio spaces for classes and training</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Services</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Personal training sessions</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Group fitness classes daily</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Fitness assessments and planning</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Nutrition consultation services</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-6 py-3 rounded transition-all hover:-translate-y-1 modal-close shadow-md hover:shadow-lg">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="restaurantsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="h-72 bg-gradient-to-r from-Hayat-gold/30 to-Hayat-dark/30 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="text-6xl z-10 relative">
+                    <i class="fas fa-utensils text-white"></i>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Restaurants</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Indulge your palate at our diverse selection of restaurants, offering everything from fine dining to casual eateries. Our culinary venues showcase both local and international cuisines prepared by expert chefs.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Whether you're looking for an intimate dining experience, a family-friendly meal, or a quick bite, Hayat's restaurant selection caters to all tastes and occasions.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Restaurant Types</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Fine dining with panoramic views</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Casual family restaurants</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Cafes and bakeries</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>International cuisine specialists</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Features</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Al fresco dining options</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Private dining rooms</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Seasonal menus using local produce</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Special event catering</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-6 py-3 rounded transition-all hover:-translate-y-1 modal-close shadow-md hover:shadow-lg">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="retailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="h-72 bg-gradient-to-r from-Hayat-green/30 to-Hayat-gold/30 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="text-6xl z-10 relative">
+                    <i class="fas fa-shopping-bag text-white"></i>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Retail Plaza</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Shop in style at our exclusive retail plaza, featuring a carefully curated selection of boutiques, essential services, and specialty stores right within the community.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Convenience meets luxury at Hayat's shopping destination, where residents can find everything from everyday necessities to high-end fashion and unique gifts.
+                    </p>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-6 py-3 rounded transition-all hover:-translate-y-1 modal-close shadow-md hover:shadow-lg">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="medicalModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="h-72 bg-gradient-to-r from-Hayat-light-green/30 to-Hayat-dark/30 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="text-6xl z-10 relative">
+                    <i class="fas fa-heartbeat text-white"></i>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Medical Center</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Your health and wellbeing are our priority at Hayat's comprehensive medical center, providing 24/7 care and a wide range of healthcare services.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Staffed by skilled healthcare professionals and equipped with modern medical technology, our facility ensures that quality healthcare is always within reach.
+                    </p>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-6 py-3 rounded transition-all hover:-translate-y-1 modal-close shadow-md hover:shadow-lg">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="educationModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="h-72 bg-gradient-to-r from-Hayat-dark/30 to-Hayat-light-green/30 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="text-6xl z-10 relative">
+                    <i class="fas fa-graduation-cap text-white"></i>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Educational Hub</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Nurture young minds at Hayat's educational facilities, offering learning opportunities for all ages from early childhood to continuing education.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our educational institutions combine innovative teaching approaches with supportive environments to foster growth, creativity, and academic excellence.
+                    </p>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-6 py-3 rounded transition-all hover:-translate-y-1 modal-close shadow-md hover:shadow-lg">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investment Section -->
+    <section id="investment" class="py-16 md:py-20 bg-Hayat-dark text-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 section-heading">Investment Opportunity</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 md:mb-16">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-Hayat-gold mb-4">15%</div>
+                    <h3 class="text-xl font-semibold mb-2">Expected ROI</h3>
+                    <p class="text-gray-300">Annual return on investment based on market analysis</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-Hayat-gold mb-4">25%</div>
+                    <h3 class="text-xl font-semibold mb-2">Capital Appreciation</h3>
+                    <p class="text-gray-300">Projected property value increase over 5 years</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-Hayat-gold mb-4">0%</div>
+                    <h3 class="text-xl font-semibold mb-2">Service Charges</h3>
+                    <p class="text-gray-300">No service charges for the first 2 years</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl mb-6 text-Hayat-gold">Why Invest in Hayat?</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                            Prime location with excellent connectivity
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                            Developed by award-winning Arada Developments
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                            Flexible payment plans with attractive terms
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                            Strong rental demand in the area
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                            UAE's growing real estate market
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <h4 class="text-2xl mb-6 text-Hayat-gold">Investment Calculator</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-2">Property Value (AED)</label>
+                            <input type="number" placeholder="1,600,000" class="w-full p-3 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
+                        </div>
+                        <div>
+                            <label class="block mb-2">Investment Period (Years)</label>
+                            <input type="number" placeholder="5" class="w-full p-3 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
+                        </div>
+                        <button class="w-full bg-Hayat-gold hover:bg-Hayat-gold/80 text-white py-3 rounded font-semibold transition-colors">Calculate Returns</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 md:py-20 bg-gray-50 mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Project Gallery</h2>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12">
+                <button class="gallery-filter active bg-Hayat-gold text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="all">All</button>
+                <button class="gallery-filter bg-white border border-Hayat-gold text-Hayat-gold hover:bg-Hayat-gold hover:text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="exterior">Exterior</button>
+                <button class="gallery-filter bg-white border border-Hayat-gold text-Hayat-gold hover:bg-Hayat-gold hover:text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="interior">Interior</button>
+                <button class="gallery-filter bg-white border border-Hayat-gold text-Hayat-gold hover:bg-Hayat-gold hover:text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="amenities">Amenities</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item h-64 bg-gradient-to-br from-Hayat-gold/30 to-Hayat-green/30 rounded-xl flex items-center justify-center text-gray-700 font-semibold text-lg hover:scale-105 transition-transform cursor-pointer" data-category="exterior">
+                    Exterior View 1
+                </div>
+                <div class="gallery-item h-64 bg-gradient-to-br from-Hayat-green/30 to-Hayat-dark/30 rounded-xl flex items-center justify-center text-gray-700 font-semibold text-lg hover:scale-105 transition-transform cursor-pointer" data-category="interior">
+                    Interior Design 1
+                </div>
+                <div class="gallery-item h-64 bg-gradient-to-br from-Hayat-dark/30 to-Hayat-gold/30 rounded-xl flex items-center justify-center text-gray-700 font-semibold text-lg hover:scale-105 transition-transform cursor-pointer" data-category="amenities">
+                    Swimming Pool
+                </div>
+                <div class="gallery-item h-64 bg-gradient-to-br from-Hayat-gold/30 to-Hayat-green/30 rounded-xl flex items-center justify-center text-gray-700 font-semibold text-lg hover:scale-105 transition-transform cursor-pointer" data-category="exterior">
+                    Exterior View 2
+                </div>
+                <div class="gallery-item h-64 bg-gradient-to-br from-Hayat-green/30 to-Hayat-dark/30 rounded-xl flex items-center justify-center text-gray-700 font-semibold text-lg hover:scale-105 transition-transform cursor-pointer" data-category="interior">
+                    Interior Design 2
+                </div>
+                <div class="gallery-item h-64 bg-gradient-to-br from-Hayat-dark/30 to-Hayat-gold/30 rounded-xl flex items-center justify-center text-gray-700 font-semibold text-lg hover:scale-105 transition-transform cursor-pointer" data-category="amenities">
+                    Fitness Center
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="py-16 md:py-20 bg-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Market Analysis</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-3xl mb-8 text-Hayat-gold">Price Trends</h3>
+                    <div class="bg-gray-100 h-80 rounded-xl flex items-center justify-center text-gray-600 text-xl mb-8">
+                        Price Trend Chart
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-500 mb-2">+12%</div>
+                            <p class="text-gray-600">YoY Growth</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-Hayat-gold mb-2">AED 1.6M</div>
+                            <p class="text-gray-600">Average Price</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-3xl mb-8 text-Hayat-gold">Comparative Analysis</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-semibold text-lg">Similar Projects</h4>
+                                <span class="text-Hayat-gold font-bold">Hayat Advantage</span>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span>Location Score</span>
+                                    <span class="font-semibold">9.5/10</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Amenities Rating</span>
+                                    <span class="font-semibold">9.8/10</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Price Competitiveness</span>
+                                    <span class="font-semibold">9.2/10</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Developer Reputation</span>
+                                    <span class="font-semibold">9.7/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-Hayat-gold/10 p-6 rounded-xl">
+                            <h4 class="font-semibold text-lg mb-4 text-Hayat-dark">Key Differentiators</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                                    Nature-inspired design
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                                    Smart home technology
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-Hayat-gold rounded-full"></div>
+                                    Sustainable living features
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Brochure Section -->
+    <section id="brochure" class="py-16 md:py-20 bg-gradient-to-r from-Hayat-dark to-Hayat-green mobile-py">
+        <div class="max-w-4xl mx-auto px-4 sm:px-5 text-center text-white">
+            <h2 class="text-3xl md:text-5xl mb-6 md:mb-8 section-heading">Download Project Brochure</h2>
+            <p class="text-lg md:text-xl mb-10 md:mb-12 opacity-90">Get detailed information about floor plans, pricing, amenities, and more</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="text-4xl mb-4">📋</div>
+                    <h3 class="text-xl font-semibold mb-2">Floor Plans</h3>
+                    <p class="text-sm opacity-80">Detailed layouts for all unit types</p>
+                </div>
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-semibold mb-2">Pricing Details</h3>
+                    <p class="text-sm opacity-80">Complete price list and payment plans</p>
+                </div>
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="text-xl font-semibold mb-2">Project Info</h3>
+                    <p class="text-sm opacity-80">Master plan and development timeline</p>
+                </div>
+            </div>
+
+            <form class="max-w-md mx-auto space-y-4 mb-8">
+                <input type="text" placeholder="Full Name" required class="w-full p-4 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
+                <input type="email" placeholder="Email Address" required class="w-full p-4 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
+                <input type="tel" placeholder="Phone Number" required class="w-full p-4 bg-white/20 border border-white/30 rounded text-white placeholder-white/70">
+                <button type="submit" class="w-full bg-Hayat-gold hover:bg-Hayat-gold/80 text-white py-4 rounded-lg font-semibold text-lg transition-colors">
+                    Download Brochure Now
+                </button>
+            </form>
+            
+            <p class="text-sm opacity-70">By downloading, you agree to receive updates about this project</p>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section id="properties" class="py-16 md:py-20 bg-gray-50 mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Featured Properties</h2>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12">
+                <button class="filter-btn bg-white border-2 border-Hayat-dark text-Hayat-dark px-4 md:px-5 py-2 md:py-3 rounded-full hover:bg-Hayat-dark hover:text-white transition-all active text-sm" data-filter="all">All</button>
+                <button class="filter-btn bg-white border-2 border-Hayat-dark text-Hayat-dark px-4 md:px-5 py-2 md:py-3 rounded-full hover:bg-Hayat-dark hover:text-white transition-all text-sm" data-filter="sale">For Sale</button>
+                <button class="filter-btn bg-white border-2 border-Hayat-dark text-Hayat-dark px-4 md:px-5 py-2 md:py-3 rounded-full hover:bg-Hayat-dark hover:text-white transition-all text-sm" data-filter="rent">For Rent</button>
+                <button class="filter-btn bg-white border-2 border-Hayat-dark text-Hayat-dark px-4 md:px-5 py-2 md:py-3 rounded-full hover:bg-Hayat-dark hover:text-white transition-all text-sm" data-filter="commercial">Commercial</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 properties-grid">
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform" data-category="sale">
+                    <div class="h-64 bg-gradient-to-br from-gray-300 to-gray-400 relative flex items-center justify-center text-gray-600 text-lg">
+                        Property Image
+                        <div class="absolute top-4 left-4 bg-Hayat-dark text-white px-3 py-1 rounded-full text-xs">For Sale</div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold">$850,000</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="mb-2 text-gray-800 text-xl font-semibold">Modern Villa with Pool</h3>
+                        <p class="text-gray-600 mb-4">Beverly Hills, CA</p>
+                        <div class="flex gap-4 text-sm text-Hayat-dark">
+                            <span>4 Beds</span>
+                            <span>3 Baths</span>
+                            <span>2,500 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform" data-category="rent">
+                    <div class="h-64 bg-gradient-to-br from-gray-300 to-gray-400 relative flex items-center justify-center text-gray-600 text-lg">
+                        Property Image
+                       
+                        <div class="absolute top-4 left-4 bg-Hayat-dark text-white px-3 py-1 rounded-full text-xs">For Rent</div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold">$3,200/mo</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="mb-2 text-gray-800 text-xl font-semibold">Luxury Apartment Downtown</h3>
+                        <p class="text-gray-600 mb-4">Manhattan, NY</p>
+                        <div class="flex gap-4 text-sm text-Hayat-dark">
+                            <span>2 Beds</span>
+                            <span>2 Baths</span>
+                            <span>1,200 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform" data-category="commercial">
+                    <div class="h-64 bg-gradient-to-br from-gray-300 to-gray-400 relative flex items-center justify-center text-gray-600 text-lg">
+                        Property Image
+                        <div class="absolute top-4 left-4 bg-Hayat-dark text-white px-3 py-1 rounded-full text-xs">Commercial</div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold">$1,200,000</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="mb-2 text-gray-800 text-xl font-semibold">Office Building Central</h3>
+                        <p class="text-gray-600 mb-4">Chicago, IL</p>
+                        <div class="flex gap-4 text-sm text-Hayat-dark">
+                            <span>10 Floors</span>
+                            <span>50 Offices</span>
+                            <span>15,000 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-transform" data-category="sale">
+                    <div class="h-64 bg-gradient-to-br from-gray-300 to-gray-400 relative flex items-center justify-center text-gray-600 text-lg">
+                        Property Image
+                        <div class="absolute top-4 left-4 bg-Hayat-dark text-white px-3 py-1 rounded-full text-xs">For Sale</div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full font-bold">$650,000</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="mb-2 text-gray-800 text-xl font-semibold">Family House with Garden</h3>
+                        <p class="text-gray-600 mb-4">Austin, TX</p>
+                        <div class="flex gap-4 text-sm text-Hayat-dark">
+                            <span>3 Beds</span>
+                            <span>2 Baths</span>
+                            <span>1,800 sq ft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-20 bg-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="mobile-text-center lg:text-left">
+                    <h2 class="text-3xl md:text-5xl mb-6 text-Hayat-dark section-heading">About Hayat Real Estate</h2>
+                    <p class="text-lg mb-8 text-gray-600 leading-relaxed">With over 15 years of experience in the real estate industry, Hayat Real Estate has been helping families and businesses find their perfect properties. We pride ourselves on exceptional service, market expertise, and personalized attention to each client's unique needs.</p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-8">
+                        <div class="text-center">
+                            <h3 class="text-3xl text-orange-500 mb-2">500+</h3>
+                            <p>Properties Sold</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl text-orange-500 mb-2">15+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl text-orange-500 mb-2">98%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-96 bg-gradient-to-br from-gray-300 to-gray-400 rounded-xl flex items-center justify-center text-gray-600 text-xl">
+                    About Image
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-20 bg-gray-50 mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-xl text-center shadow-lg hover:-translate-y-2 transition-transform">
+                    <div class="text-5xl mb-4">🏠</div>
+                    <h3 class="mb-4 text-Hayat-dark text-xl font-semibold">Property Sales</h3>
+                    <p class="text-gray-600 leading-relaxed">Expert guidance through the entire home selling process with market analysis and professional marketing.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl text-center shadow-lg hover:-translate-y-2 transition-transform">
+                    <div class="text-5xl mb-4">🔑</div>
+                    <h3 class="mb-4 text-Hayat-dark text-xl font-semibold">Property Management</h3>
+                    <p class="text-gray-600 leading-relaxed">Comprehensive property management services for landlords and property investors.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl text-center shadow-lg hover:-translate-y-2 transition-transform">
+                    <div class="text-5xl mb-4">💼</div>
+                    <h3 class="mb-4 text-Hayat-dark text-xl font-semibold">Investment Consulting</h3>
+                    <p class="text-gray-600 leading-relaxed">Strategic real estate investment advice to maximize your portfolio returns.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl text-center shadow-lg hover:-translate-y-2 transition-transform">
+                    <div class="text-5xl mb-4">📋</div>
+                    <h3 class="mb-4 text-Hayat-dark text-xl font-semibold">Market Analysis</h3>
+                    <p class="text-gray-600 leading-relaxed">Detailed market research and property valuations to make informed decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-20 bg-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Contact Us</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
+                <div class="flex flex-col gap-8 mobile-text-center lg:text-left">
+                    <div>
+                        <h3 class="mb-2 text-Hayat-dark text-xl font-semibold">📍 Address</h3>
+                        <p class="text-gray-600 leading-relaxed">123 Real Estate Ave<br>Business District, City 12345</p>
+                    </div>
+                    <div>
+                        <h3 class="mb-2 text-Hayat-dark text-xl font-semibold">📞 Phone</h3>
+                        <p class="text-gray-600 leading-relaxed">+1 (555) 123-4567</p>
+                    </div>
+                    <div>
+                        <h3 class="mb-2 text-Hayat-dark text-xl font-semibold">✉ Email</h3>
+                        <p class="text-gray-600 leading-relaxed">info@hayatrealestate.com</p>
+                    </div>
+                </div>
+                <form class="contact-form flex flex-col gap-4">
+                    <input type="text" placeholder="Your Name" required class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base">
+                    <input type="email" placeholder="Your Email" required class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base">
+                    <input type="tel" placeholder="Your Phone" class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base">
+                    <textarea placeholder="Your Message" rows="5" required class="px-4 py-4 border-2 border-gray-300 rounded focus:outline-none focus:border-Hayat-dark text-base"></textarea>
+                    <button type="submit" class="bg-Hayat-dark hover:bg-gray-700 text-white py-4 rounded text-base transition-colors">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-Hayat-dark to-gray-800 text-white py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <!-- Footer Top Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 md:mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 bg-gradient-to-br from-Hayat-dark to-Hayat-gold rounded-lg relative">
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-gradient-to-r from-white to-gray-200" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%)"></div>
+                        </div>
+                        <h2 class="text-white font-display text-2xl font-light tracking-wide">Hayat</h2>
+                    </div>
+                    <p class="text-gray-300 mb-5 leading-relaxed">Redefining luxury living with nature-inspired communities that blend elegance, sustainability, and modern amenities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-Hayat-gold flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-Hayat-gold flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-Hayat-gold flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-Hayat-gold flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-display font-medium mb-5 text-white relative pb-4 inline-block">
+                        Quick Links
+                        <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-Hayat-gold"></span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#masterplan" class="text-gray-300 hover:text-Hayat-gold transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs text-Hayat-gold"></i>
+                                <span>Master Plan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#community" class="text-gray-300 hover:text-Hayat-gold transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs text-Hayat-gold"></i>
+                                <span>Community</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#investment" class="text-gray-300 hover:text-Hayat-gold transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs text-Hayat-gold"></i>
+                                <span>Investment</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#gallery" class="text-gray-300 hover:text-Hayat-gold transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs text-Hayat-gold"></i>
+                                <span>Gallery</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#brochure" class="text-gray-300 hover:text-Hayat-gold transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs text-Hayat-gold"></i>
+                                <span>Download Brochure</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-display font-medium mb-5 text-white relative pb-4 inline-block">
+                        Contact Us
+                        <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-Hayat-gold"></span>
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-map-marker-alt text-Hayat-gold text-sm"></i>
+                            </div>
+                            <span class="text-gray-300">123 Real Estate Ave<br>Business District, Sharjah, UAE</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-Hayat-gold text-sm"></i>
+                            </div>
+                            <span class="text-gray-300">+971 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-Hayat-gold text-sm"></i>
+                            </div>
+                            <span class="text-gray-300">info@hayatrealestate.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-display font-medium mb-5 text-white relative pb-4 inline-block">
+                        Newsletter
+                        <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-Hayat-gold"></span>
+                    </h3>
+                    <p class="text-gray-300 mb-4">Subscribe to receive updates on new properties and exclusive offers.</p>
+                    <form class="space-y-3">
+                        <div class="relative">
+                            <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded text-white placeholder-gray-400 focus:outline-none focus:border-Hayat-gold">
+                            <button type="submit" class="absolute right-0 top-0 bottom-0 px-4 bg-Hayat-gold hover:bg-Hayat-gold/80 text-white rounded-r transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <input type="checkbox" id="consent" class="mt-1">
+                            <label for="consent" class="text-gray-400 text-xs">I consent to receive emails about property updates and offers from Hayat Real Estate.</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="pt-6 md:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left">
+                    <p class="text-gray-400">&copy; 2024 Hayat Real Estate. All rights reserved.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <a href="#" class="text-gray-400 hover:text-Hayat-gold text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-Hayat-gold text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-Hayat-gold text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <div class="fixed bottom-8 right-4 md:right-8 z-50 opacity-0 transition-opacity duration-300" id="backToTopBtn">
+            <button class="w-10 h-10 bg-Hayat-gold hover:bg-Hayat-gold/80 text-white rounded-full flex items-center justify-center shadow-lg transition-all hover:-translate-y-1">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
