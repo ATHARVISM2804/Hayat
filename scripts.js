@@ -453,6 +453,19 @@ function initPhoneInputsAndBrochureModal() {
         openBrochureModal('locationguide');
     });
     
+    // Explore Amenities button opens Enquire modal
+    document.getElementById('explore-amenities')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        const enquireModal = document.getElementById('enquireModal');
+        const enquireModalContent = document.getElementById('enquireModalContent');
+        enquireModal.classList.remove('hidden');
+        setTimeout(() => {
+            enquireModalContent.classList.remove('scale-95', 'opacity-0');
+            enquireModalContent.classList.add('scale-100', 'opacity-100');
+        }, 10);
+        document.body.classList.add('overflow-hidden');
+    });
+    
     // Master Plan download buttons
     document.querySelectorAll('.download-master-plan').forEach(button => {
         button.addEventListener('click', function(e) {

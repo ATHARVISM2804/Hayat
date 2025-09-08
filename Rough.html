@@ -1,253 +1,122 @@
-<!-- Hero Section -->
-<section id="home" class="min-h-screen relative flex items-center pt-24 md:pt-20" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('./dubaisouthproperties.ae-1757233108963/row1.jpeg') center/cover; background-attachment: fixed;">
-    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative">
-        <!-- Hero Schema Markup -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Residence",
-          "name": "HAYAT Townhouses Dubai South",
-          "description": "Luxury 3-5 bedroom townhouses in nature-inspired community",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dubai South",
-            "addressRegion": "Dubai",
-            "addressCountry": "UAE"
-          },
-          "numberOfRooms": "3-5 bedrooms",
-          "floorSize": {
-            "@type": "QuantitativeValue",
-            "value": "3217-4953",
-            "unitCode": "SQF"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "3400000",
-            "priceCurrency": "AED"
-          }
-        }
-        </script>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-[400px_1fr_400px] gap-4 sm:gap-6 md:gap-8 items-start min-h-[calc(100vh-80px)]">
-            <!-- Mobile: Center Main Content First -->
-            <div class="text-center text-white lg:col-start-2 flex flex-col justify-center min-h-[50vh] lg:min-h-[70vh] order-1 lg:order-2">
-                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light font-display text-white mb-3 sm:mb-4 tracking-wider animate-subtle" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">HAYAT</h2>
-                <p class="text-lg sm:text-xl md:text-2xl mb-3 tracking-wide uppercase font-medium" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Nature-First Living in Dubai South UAE</p>
-                <div class="w-16 sm:w-20 h-1 bg-Hayat-gold mx-auto mb-8 sm:mb-10"></div>
-                <button class="group bg-Hayat-gold/90 hover:bg-Hayat-gold text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg text-lg sm:text-xl transition-all hover:-translate-y-1 backdrop-blur-md enquire-btn flex items-center gap-3 mx-auto open-enquire-modal shadow-lg" id="heroEnquireBtn">
-                    Enquire Now 
-                    <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+<section id="community" class="py-16 md:py-24 bg-gray-50 mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">World-Class Amenities</span>
+                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark clipped-gold-underline section-heading">Dubai South Community Features</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">Experience premium amenities designed for modern families in Dubai South</p>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+                <!-- Swimming Pool -->
+                <div class="bg-white rounded-xl shadow-premium hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border overflow-hidden" data-modal="swimmingPoolModal">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="./dubaisouthproperties.ae-1757233108963/swimming.jpeg" alt="Swimming Pool" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-50"></div>
+                        <div class="absolute top-4 left-4 bg-Hayat-gold/90 text-white px-3 py-1 rounded-full text-xs font-medium">Premium Amenity</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-4 -mt-12 border-4 border-white z-10 relative">
+                            <i class="fas fa-swimming-pool text-2xl text-Hayat-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-Hayat-dark">Pool and Landscaped Garden</h3>
+                        <p class="text-gray-600 mb-4">Experience ultimate relaxation in our state-of-the-art swimming pool, designed for both leisure and fitness.</p>
+                         
+                    </div>
+                </div>
+
+                <!-- Fitness -->
+                <div class="bg-white rounded-xl shadow-premium hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border overflow-hidden" data-modal="fitnessModal">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="./dubaisouthproperties.ae-1757233108963/fitness.jpeg" alt="Fitness Center" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-50"></div>
+                        <div class="absolute top-4 left-4 bg-Hayat-gold/90 text-white px-3 py-1 rounded-full text-xs font-medium">Premium Amenity</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-4 -mt-12 border-4 border-white z-10 relative">
+                            <i class="fas fa-dumbbell text-2xl text-Hayat-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-Hayat-dark">Fitness and Wellness Facilities</h3>
+                        <p class="text-gray-600 mb-4">State-of-the-art fitness center with yoga and gym facilities.</p>
+                         
+                    </div>
+                </div>
+
+                <!-- Retail & Dining -->
+                <div class="bg-white rounded-xl shadow-premium hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border overflow-hidden" data-modal="restaurantsModal">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="./dubaisouthproperties.ae-1757233108963/Gallery8.jpeg" alt="Restaurants" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-50"></div>
+                        <div class="absolute top-4 left-4 bg-Hayat-gold/90 text-white px-3 py-1 rounded-full text-xs font-medium">Premium Amenity</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-4 -mt-12 border-4 border-white z-10 relative">
+                            <i class="fas fa-utensils text-2xl text-Hayat-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-Hayat-dark">Retail, Dining and Essential Services</h3>
+                        <p class="text-gray-600 mb-4">Enhancing your lifestyle with modern comforts and holistic wellness amenities.</p>
+                         
+                    </div>
+                </div>
+
+                <!-- Relaxation Zone -->
+                <div class="bg-white rounded-xl shadow-premium hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border overflow-hidden" data-modal="relaxationModal">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="./dubaisouthproperties.ae-1757233108963/dedicated.jpeg" alt="Relaxation Zone" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-50"></div>
+                        <div class="absolute top-4 left-4 bg-Hayat-gold/90 text-white px-3 py-1 rounded-full text-xs font-medium">Premium Amenity</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-4 -mt-12 border-4 border-white z-10 relative">
+                            <i class="fas fa-spa text-2xl text-Hayat-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-Hayat-dark">Dedicated Zone for Relaxation and Gathering</h3>
+                        <p class="text-gray-600 mb-4">Unwind in thoughtfully designed spaces that offer the perfect setting for relaxation and memorable gatherings.</p>
+                         
+                    </div>
+                </div>
+
+                <!-- Playzone -->
+                <div class="bg-white rounded-xl shadow-premium hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border overflow-hidden" data-modal="playzoneModal">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="./dubaisouthproperties.ae-1757233108963/gallery3.jpeg" alt="Playzone" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-50"></div>
+                        <div class="absolute top-4 left-4 bg-Hayat-gold/90 text-white px-3 py-1 rounded-full text-xs font-medium">Premium Amenity</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-4 -mt-12 border-4 border-white z-10 relative">
+                            <i class="fas fa-child text-2xl text-Hayat-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-Hayat-dark">Playzone and Recreation Areas</h3>
+                        <p class="text-gray-600 mb-4">Fun-filled recreation areas designed for children and families to enjoy safe and engaging activities.</p>
+                         
+                    </div>
+                </div>
+
+                <!-- Park & Trails -->
+                <div class="bg-white rounded-xl shadow-premium hover:shadow-xl transition-all community-card hover:-translate-y-1 gradient-border overflow-hidden" data-modal="parkModal">
+                    <div class="h-80 overflow-hidden relative">
+                        <img src="./dubaisouthproperties.ae-1757233108963/Educational Hub.jpeg" alt="Park and Trails" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-50"></div>
+                        <div class="absolute top-4 left-4 bg-Hayat-gold/90 text-white px-3 py-1 rounded-full text-xs font-medium">Premium Amenity</div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-16 h-16 bg-Hayat-gold/10 rounded-full mx-auto flex items-center justify-center mb-4 -mt-12 border-4 border-white z-10 relative">
+                            <i class="fas fa-tree text-2xl text-Hayat-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-Hayat-dark">Park and Walking Trails</h3>
+                        <p class="text-gray-600 mb-4">Enjoy serene green spaces and well-designed walking trails that connect you with nature while promoting wellness.</p>
+                         
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explore Button -->
+            <div class="text-center">
+                <button id="explore-amenities" class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 hover:from-Hayat-gold/80 hover:to-Hayat-gold text-white px-8 py-4 rounded-lg text-lg transition-all hover:-translate-y-1 shadow-md hover:shadow-lg flex items-center gap-2 mx-auto">
+                    <span>Explore All Amenities</span>
+                    <i class="fas fa-arrow-right text-sm"></i>
                 </button>
-                
-                <!-- Mobile scroll indicator -->
-                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-center block lg:hidden">
-                    <p class="text-sm mb-2 uppercase tracking-widest">Scroll to Explore</p>
-                    <div class="w-8 h-8 mx-auto rounded-full border border-white/50 flex items-center justify-center">
-                        <i class="fas fa-chevron-down text-sm scroll-indicator"></i>
-                    </div>
-                </div>
-                
-                <!-- Desktop scroll indicator -->
-                <div class="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 text-white text-center hidden lg:block">
-                    <p class="text-xs sm:text-sm mb-2 uppercase tracking-widest">Explore</p>
-                    <div class="w-7 h-7 sm:w-8 sm:h-8 mx-auto rounded-full border border-white/50 flex items-center justify-center">
-                        <i class="fas fa-chevron-down text-xs scroll-indicator"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile: Property Info Card Second -->
-            <div class="bg-white/95 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-premium self-start mt-6 lg:mt-10 mx-auto lg:mx-0 w-full max-w-sm gradient-border h-fit order-2 lg:order-1">
-                <div class="inline-block bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs font-medium mb-4 sm:mb-6 max-w-full whitespace-normal break-words uppercase tracking-wider">Exclusive New Launch</div>
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-Hayat-dark mb-2 tracking-wide">HAYAT by Dubai South</h1>
-                <p class="text-Hayat-green text-base sm:text-lg mb-2">Premium Townhouses at Dubai South</p>
-                <div class="flex items-center gap-2 mb-4">
-                    <i class="fas fa-building text-xs text-Hayat-gold" aria-hidden="true"></i>
-                    <p class="text-gray-600 text-sm">By Dubai South Properties</p>
-                </div>
-                <p class="text-Hayat-dark font-medium mb-6 sm:mb-8">Nature Inspired Luxury Community</p>
-                
-                <div class="mb-6 sm:mb-8">
-                    <h3 class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark/80 text-white -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-display font-medium mb-3 sm:mb-4">Payment Plan</h3>
-                    <div class="space-y-3 sm:space-y-4">
-                        <div class="flex items-center gap-3 sm:gap-4 py-2 border-l-4 border-Hayat-gold pl-3 sm:pl-4 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-hand-holding-water text-Hayat-gold"></i>
-                            <span class="text-xs sm:text-sm">5% downpayment</span>
-                        </div>
-                        <div class="flex items-center gap-3 sm:gap-4 py-2 border-l-4 border-Hayat-gold pl-3 sm:pl-4 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-hard-hat text-Hayat-gold"></i>
-                            <span class="text-xs sm:text-sm">55% during construction</span>
-                        </div>
-                        <div class="flex items-center gap-3 sm:gap-4 py-2 border-l-4 border-Hayat-gold pl-3 sm:pl-4 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-home text-Hayat-gold"></i>
-                            <span class="text-xs sm:text-sm">40% after completion</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile: Inquiry Form Third -->
-            <div class="bg-white/95 backdrop-blur-md rounded-xl shadow-premium self-start mt-6 lg:mt-10 w-full max-w-sm mx-auto lg:mx-0 gradient-border order-3 lg:order-3">
-                <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white px-4 sm:px-6 py-3 sm:py-4 rounded-t-xl">
-                    <h3 class="text-base sm:text-lg font-display font-medium mb-1">Get Project Details</h3>
-                    <p class="text-xs opacity-80">First 100 registrations get special pricing</p>
-                </div>
-                <form class="p-4 sm:p-6 space-y-4 sm:space-y-5">
-                    <div>
-                        <label class="block mb-1 sm:mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Full Name *</label>
-                        <div class="relative">
-                            <i class="fas fa-user absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                            <input type="text" placeholder="Enter your name" required
-                                class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block mb-1 sm:mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Email Address *</label>
-                        <div class="relative">
-                            <i class="fas fa-envelope absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                            <input type="email" placeholder="Enter your email" required
-                                class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block mb-1 sm:mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Phone Number *</label>
-                        <div class="relative w-full">
-                            <i class="fas fa-phone absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                            <input id="enquire-phone" type="tel" placeholder="Enter phone number" required
-                                class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
-                        </div>
-                    </div>
-                  
-                    <button type="submit"
-                        class="w-full bg-gradient-to-r from-Hayat-dark to-Hayat-dark/90 hover:from-Hayat-dark/90 hover:to-Hayat-dark text-white py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-all shadow-md hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2">
-                        <i class="fas fa-paper-plane text-xs sm:text-sm"></i>
-                        Submit Enquiry
-                    </button>
-                    <p class="text-xs text-gray-500 text-center">By submitting, you agree to our privacy policy</p>
-                </form>
             </div>
         </div>
-        
-        <!-- Property Stats Bar - Desktop Only -->
-        <div class="hidden xl:flex absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-            <div class="grid grid-cols-4 bg-white shadow-premium rounded-lg w-full">
-                <div class="p-4 text-center border-r border-gray-100">
-                    <p class="text-Hayat-gold text-3xl font-display font-bold">96%</p>
-                    <p class="text-sm text-gray-600">Return on Investment</p>
-                </div>
-                <div class="p-4 text-center border-r border-gray-100">
-                    <p class="text-Hayat-gold text-3xl font-display font-bold">24mo</p>
-                    <p class="text-sm text-gray-600">Construction Timeline</p>
-                </div>
-                <div class="p-4 text-center border-r border-gray-100">
-                    <p class="text-Hayat-gold text-3xl font-display font-bold">1,800+</p>
-                    <p class="text-sm text-gray-600">Units Available</p>
-                </div>
-                <div class="p-4 text-center">
-                    <p class="text-Hayat-gold text-3xl font-display font-bold">10 min</p>
-                    <p class="text-sm text-gray-600">From City Center</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Property Stats - Positioned at bottom -->
-        <div class="mt-12 sm:mt-16 bg-white/95 backdrop-blur-md shadow-premium rounded-lg w-full xl:hidden grid grid-cols-2 mobile-stats">
-            <div class="p-4 sm:p-5 text-center border-r border-b border-gray-100">
-                <p class="text-Hayat-gold text-2xl sm:text-3xl font-display font-bold">96%</p>
-                <p class="text-xs sm:text-sm text-gray-600">Return on Investment</p>
-            </div>
-            <div class="p-4 sm:p-5 text-center border-b border-gray-100">
-                <p class="text-Hayat-gold text-2xl sm:text-3xl font-display font-bold">24mo</p>
-                <p class="text-xs sm:text-sm text-gray-600">Construction Timeline</p>
-            </div>
-            <div class="p-4 sm:p-5 text-center border-r border-gray-100">
-                <p class="text-Hayat-gold text-2xl sm:text-3xl font-display font-bold">1,800+</p>
-                <p class="text-xs sm:text-sm text-gray-600">Units Available</p>
-            </div>
-            <div class="p-4 sm:p-5 text-center">
-                <p class="text-Hayat-gold text-2xl sm:text-3xl font-display font-bold">10 min</p>
-                <p class="text-xs sm:text-sm text-gray-600">From Al Maktoum Airport</p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Mobile-specific background overlay for better text readability -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 lg:hidden pointer-events-none"></div>
-</section>
-
-<style>
-/* Mobile-specific hero optimizations */
-@media (max-width: 1023px) {
-    #home {
-        background-attachment: scroll !important;
-        background-position: center center !important;
-        background-size: cover !important;
-        min-height: 100vh;
-    }
-    
-    /* Ensure proper spacing on mobile */
-    #home .grid > div {
-        margin-bottom: 1rem;
-    }
-    
-    /* Better mobile text shadows */
-    #home h2, #home p {
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.7) !important;
-    }
-}
-
-@media (max-width: 640px) {
-    #home {
-        background-position: 30% center !important;
-        padding-top: 6rem;
-        padding-bottom: 2rem;
-    }
-    
-    /* Mobile hero title sizing */
-    #home h2 {
-        font-size: 3.5rem !important;
-        line-height: 1.1;
-        margin-bottom: 1rem !important;
-    }
-    
-    /* Mobile subtitle */
-    #home p {
-        font-size: 1rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    /* Mobile button */
-    #home .enquire-btn {
-        padding: 1rem 2rem !important;
-        font-size: 1rem !important;
-    }
-}
-
-/* Enhanced scroll indicator animation */
-.scroll-indicator {
-    animation: scroll-bounce 2s ease-in-out infinite;
-}
-
-@keyframes scroll-bounce {
-    0%, 100% { 
-        transform: translateY(0); 
-        opacity: 0.8; 
-    }
-    50% { 
-        transform: translateY(8px); 
-        opacity: 0.4; 
-    }
-}
-
-/* Mobile card improvements */
-@media (max-width: 1023px) {
-    .gradient-border {
-        backdrop-filter: blur(10px);
-    }
-    
-    .mobile-stats {
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-    }
-}
-</style>
+    </section>
