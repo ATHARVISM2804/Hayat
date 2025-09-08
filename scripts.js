@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Enquire modal
     initEnquireModal();
+
+    // Initialize phone inputs and brochure modal
+    initPhoneInputsAndBrochureModal();
+
+    // Initialize Google Maps
+    initMap();
 });
 
 function initMobileNav() {
@@ -358,4 +364,203 @@ function initEnquireModal() {
     if (enquireModalClose) enquireModalClose.addEventListener('click', closeEnquireModal);
     if (enquireModalOverlay) enquireModalOverlay.addEventListener('click', closeEnquireModal);
 }
+
+function initPhoneInputsAndBrochureModal() {
+    // Initialize intl-tel-input for popup (modal)
+    var enquirePopupPhone = document.getElementById('enquire-popup-phone');
+    if (enquirePopupPhone && window.intlTelInput) {
+        window.intlTelInput(enquirePopupPhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+    
+    // Initialize intl-tel-input for right inquiry form
+    var enquirePhone = document.getElementById('enquire-phone');
+    if (enquirePhone && window.intlTelInput) {
+        window.intlTelInput(enquirePhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+    
+    // Initialize intl-tel-input for contact page
+    var contactPhone = document.getElementById('contact-phone');
+    if (contactPhone && window.intlTelInput) {
+        window.intlTelInput(contactPhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+
+    // Initialize intl-tel-input for brochure form
+    var brochurePhone = document.getElementById('brochure-phone');
+    if (brochurePhone && window.intlTelInput) {
+        window.intlTelInput(brochurePhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+
+    // Brochure Modal logic
+    function openBrochureModal(downloadType = 'brochure') {
+        document.getElementById('brochureModal').classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        
+        // Update modal content based on download type
+        if (downloadType === 'masterplan') {
+            document.getElementById('brochureModalTitle').textContent = 'Download Master Plan';
+            document.getElementById('brochureModalDescription').textContent = 'Get the detailed master plan after submitting your details';
+            document.getElementById('downloadTypeField').value = 'masterplan';
+        } else if (downloadType === 'paymentplan') {
+            document.getElementById('brochureModalTitle').textContent = 'Download Payment Plan';
+            document.getElementById('brochureModalDescription').textContent = 'Get the detailed payment plan after submitting your details';
+            document.getElementById('downloadTypeField').value = 'paymentplan';
+        } else {
+            document.getElementById('brochureModalTitle').textContent = 'Download Brochure';
+            document.getElementById('brochureModalDescription').textContent = 'Get the full project brochure after submitting your details';
+            document.getElementById('downloadTypeField').value = 'brochure';
+        }
+    }
+    
+    function closeBrochureModal() {
+        document.getElementById('brochureModal').classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        // Reset form and success message
+        document.getElementById('brochureForm').reset();
+        document.getElementById('brochureForm').classList.remove('hidden');
+        document.getElementById('brochureSuccess').classList.add('hidden');
+    }
+    
+    // Download brochure navigation buttons
+    document.getElementById('downloadBrochureNavBtn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBrochureModal('brochure');
+    });
+    
+    document.getElementById('downloadBrochureNavBtnMobile')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBrochureModal('brochure');
+    });
+    
+    // Payment Plan popup button
+    document.getElementById('open-popup')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBrochureModal('paymentplan');
+    });
+    
+    // Master Plan download buttons
+    document.querySelectorAll('.download-master-plan').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openBrochureModal('masterplan');
+        });
+    });
+    
+    // Modal close events
+    document.getElementById('brochureModalClose')?.addEventListener('click', closeBrochureModal);
+    document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', closeBrochureModal);
+
+    // Brochure form submit handler
+    document.getElementById('brochureForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get the download type
+        const downloadType = document.getElementById('downloadTypeField').value;
+        
+        // Hide form, show success
+        document.getElementById('brochureForm').classList.add('hidden');
+        document.getElementById('brochureSuccess').classList.remove('hidden');
+        
+        // Set the correct download link based on type
+        const downloadLink = document.getElementById('brochurePdfLink');
+        if (downloadType === 'masterplan') {
+            downloadLink.href = "./Assets/FACTSHEET-1.pdf";
+            downloadLink.setAttribute('download', 'HAYAT-FACTSHEET.pdf');
+        } else if (downloadType === 'paymentplan') {
+            downloadLink.href = "./Assets/HAYAT-PaymentPlan.pdf";
+            downloadLink.setAttribute('download', 'HAYAT-PaymentPlan.pdf');
+        } else {
+            downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
+            downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
+        }
+        
+        // Start download automatically
+        setTimeout(function() {
+            downloadLink.click();
+        }, 500);
+    });
+}
+
+// Google Maps initialization
+function initMap() {
+    // Only initialize if map element exists
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+
+    // Map options - centered at Dubai Production City
+    const mapOptions = {
+        center: { lat: 25.3463, lng: 55.4209 },
+        zoom: 14,
+        mapId: 'standard_map',
+        mapTypeControl: false,
+        fullscreenControl: false,
+        streetViewControl: false,
+        styles: [
+            {
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#444444"}]
+            },
+            {
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#2c3e50"}]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [{"visibility": "off"}]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [{"saturation": -100}, {"lightness": 45}]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [{"color": "#c8a876"}, {"visibility": "on"}]
+            }
+        ]
+    };
+
+    // Create the map
+    const map = new google.maps.Map(mapElement, mapOptions);
+
+    // Add a marker
+    const marker = new google.maps.Marker({
+        position: { lat: 25.3463, lng: 55.4209 },
+        map: map,
+        title: 'Hayat Real Estate',
+        animation: google.maps.Animation.DROP,
+        icon: {
+            url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+            scaledSize: new google.maps.Size(40, 40)
+        }
+    });
+
+    // Add an info window
+    const infoWindow = new google.maps.InfoWindow({
+        content: '<div style="padding: 8px; text-align: center;"><strong>Hayat Real Estate</strong><br>403, our nest real estate galadari building<br>Dubai Production City, Dubai, UAE</div>'
+    });
+
+    // Open info window when marker is clicked
+    marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+    });
+}
+
+// Make initMap globally available for Google Maps API callback
+window.initMap = initMap;
 
