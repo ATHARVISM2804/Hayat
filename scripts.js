@@ -416,6 +416,10 @@ function initPhoneInputsAndBrochureModal() {
             document.getElementById('brochureModalTitle').textContent = 'Download Payment Plan';
             document.getElementById('brochureModalDescription').textContent = 'Get the detailed payment plan after submitting your details';
             document.getElementById('downloadTypeField').value = 'paymentplan';
+        } else if (downloadType === 'locationguide') {
+            document.getElementById('brochureModalTitle').textContent = 'Download Location Guide';
+            document.getElementById('brochureModalDescription').textContent = 'Get the detailed location and connectivity guide after submitting your details';
+            document.getElementById('downloadTypeField').value = 'locationguide';
         } else {
             document.getElementById('brochureModalTitle').textContent = 'Download Brochure';
             document.getElementById('brochureModalDescription').textContent = 'Get the full project brochure after submitting your details';
@@ -446,7 +450,7 @@ function initPhoneInputsAndBrochureModal() {
     // Payment Plan popup button
     document.getElementById('open-popup')?.addEventListener('click', function(e) {
         e.preventDefault();
-        openBrochureModal('paymentplan');
+        openBrochureModal('locationguide');
     });
     
     // Master Plan download buttons
@@ -480,6 +484,9 @@ function initPhoneInputsAndBrochureModal() {
         } else if (downloadType === 'paymentplan') {
             downloadLink.href = "./Assets/HAYAT-PaymentPlan.pdf";
             downloadLink.setAttribute('download', 'HAYAT-PaymentPlan.pdf');
+        } else if (downloadType === 'locationguide') {
+            downloadLink.href = "./Assets/HAYAT-LocationGuide.pdf";
+            downloadLink.setAttribute('download', 'HAYAT-LocationGuide.pdf');
         } else {
             downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
             downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
