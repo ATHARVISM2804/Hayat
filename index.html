@@ -189,6 +189,20 @@
             mask-composite: exclude;
         }
 
+         .bg-blur-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(8px);
+            background-color: rgba(44, 62, 80, 0.2);
+            z-index: -1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
         .animate-subtle {
             animation: subtle-float 5s ease-in-out infinite;
         }
@@ -366,11 +380,13 @@
 <body class="font-sans text-gray-800 leading-relaxed">
 
     <div id="popupContainer" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <iframe id="popupFrame" src="popup.html" class="bg-white rounded-lg w-11/12 max-w-md h-80 shadow-lg"></iframe>
+        <iframe id="popupFrame" src="popup.html" class=" rounded-lg w-11/12 max-w-md h-[80vh] shadow-lg"></iframe>
+    <div class="bg-blur-overlay"></div>
+
     </div>
     <!-- Header -->
     <header
-        class="fixed px-5 lg:px-0 flex items-center justify-center top-0 w-full h-24 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        class="fixed px-5 lg:px-0 flex items-center justify-center top-0 w-full h-24 z-20 bg-white/95 backdrop-blur-md shadow-lg">
         <div class="max-w-7xl mx-auto w-full">
             <nav class="flex items-center justify-between py-4" role="navigation" aria-label="Main navigation">
                 <!-- Logo -->
@@ -2168,23 +2184,22 @@
                 <p class="text-sm opacity-80">First 100 registrations will have special discounts</p>
             </div>
             <div class="p-8">
-                <form class="space-y-5">
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                    <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
                     <div>
-                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name <span
-                                class="text-red-500">*</span></label>
-                        <input type="text" placeholder="John Deo" required
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="name" placeholder="John Deo" required
                             class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <div>
-                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span
-                                class="text-red-500">*</span></label>
-                        <input type="email" placeholder="johndeo@gmail.com" required
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span class="text-red-500">*</span></label>
+                        <input type="email" name="email" placeholder="johndeo@gmail.com" required
                             class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <div>
-                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span
-                                class="text-red-500">*</span></label>
-                        <input id="enquire-popup-phone" type="tel" placeholder="Enter phone number" required
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
+                        <input id="enquire-popup-phone" name="phone" type="tel" placeholder="Enter phone number" required
                             class="w-[110%] md:w-[150%] px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                     </div>
                     <button type="submit"
@@ -2212,7 +2227,9 @@
                     submitting your details</p>
             </div>
             <div class="p-8">
-                <form id="brochureForm" class="space-y-5">
+                <form id="brochureForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                    <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
                     <input type="hidden" name="downloadType" id="downloadTypeField" value="brochure">
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Full Name <span

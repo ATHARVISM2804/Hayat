@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Exclusive Offer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html, body { height: 100%; }
-        body { overflow: hidden; }
+        body { 
+            overflow: hidden;
+            position: relative;
+        }
         .animate-fade-in {
             animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
         }
@@ -21,23 +25,101 @@
         .to-Hayat-dark { --tw-gradient-to: #2c3e50; }
         .bg-Hayat-dark { background-color: #2c3e50; }
         .from-Hayat-dark { --tw-gradient-from: #2c3e50; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(44 62 80 / 0)); }
+        
+        /* New styles */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0%, 100% { left: -100%; }
+            50% { left: 125%; }
+        }
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .luxury-shadow {
+            box-shadow: 0 10px 25px -5px rgba(200, 168, 118, 0.3), 0 8px 10px -6px rgba(44, 62, 80, 0.2);
+        }
+        .card-overlay {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+            backdrop-filter: blur(8px);
+        }
+        
+        /* Background blur overlay */
+        .bg-blur-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(8px);
+            background-color: rgba(44, 62, 80, 0.2);
+            z-index: -1;
+            animation: fadeIn 0.5s ease-out;
+        }
     </style>
 </head>
-<body class="h-full flex items-center justify-center bg-gradient-to-br from-Hayat-gold/20 via-white to-Hayat-dark/10 p-4">
-    <div class="relative rounded-2xl shadow-2xl max-w-md w-full p-8 text-center border border-Hayat-gold/30 animate-fade-in">
-        <button onclick="closeOnly()" aria-label="Close popup" class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-gray-100 hover:bg-gray-200 transition-colors w-9 h-9 rounded-full flex items-center justify-center shadow">
+<body class="flex items-center justify-center bg-gradient-to-br z-[1000] from-Hayat-gold/20 via-white to-Hayat-dark/10 p-4">
+    <!-- Background blur overlay -->
+    
+    <div class="relative bg-white rounded-2xl luxury-shadow max-w-lg w-[80vw] text-center border border-Hayat-gold/30 animate-fade-in overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-5 z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <pattern id="pattern-circles" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                    <circle id="pattern-circle" cx="10" cy="10" r="2" fill="#c8a876"></circle>
+                </pattern>
+                <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+            </svg>
+        </div>
+        
+        <!-- Top ribbon -->
+        <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark py-3 px-8 text-white text-sm font-semibold tracking-wider">
+            LIMITED TIME OFFER
+        </div>
+        
+        <button onclick="closeOnly()" aria-label="Close popup" class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-white hover:bg-gray-50 transition-colors w-9 h-9 rounded-full flex items-center justify-center shadow-md z-10">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
-        <div class="flex flex-col items-center">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-Hayat-gold to-Hayat-dark flex items-center justify-center mb-4 shadow-lg">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        
+        <div class="flex flex-col items-center p-10 pt-6 relative z-1">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-Hayat-gold to-Hayat-dark flex items-center justify-center mb-6 shadow-lg">
+                <i class="fas fa-gift text-white text-3xl"></i>
             </div>
-            <h3 class="text-2xl font-display font-semibold mb-2 text-Hayat-dark tracking-wide">Exclusive Offer!</h3>
-            <p class="text-gray-600 mb-6 text-base">Be among the <span class="text-Hayat-gold font-semibold">first 100</span> to make an inquiry and receive a special reward.</p>
-            <button onclick="sendClose()" class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark hover:from-Hayat-dark hover:to-Hayat-gold text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all hover:-translate-y-1 flex items-center gap-2 mx-auto">
+            
+            <span class="bg-Hayat-gold/10 text-Hayat-gold px-4 py-1 rounded-full text-sm font-medium mb-3">Premium Opportunity</span>
+            
+            <h3 class="text-4xl font-display font-bold mb-3 text-Hayat-dark tracking-wide">Exclusive Offer!</h3>
+            
+            <p class="text-gray-600 mb-8 text-base max-w-lg">
+                Be among the <span class="text-Hayat-gold font-bold">first 100</span> to make an inquiry and receive a special reward on your investment.
+            </p>
+            
+            <button onclick="sendClose()" class="shine-effect bg-gradient-to-r from-Hayat-gold to-Hayat-dark hover:from-Hayat-dark hover:to-Hayat-gold text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg transition-all hover:-translate-y-1 flex items-center gap-3 mx-auto w-full justify-center max-w-sm">
                 <span>Claim Now</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                <i class="fas fa-arrow-right"></i>
             </button>
+            
+            <p class="mt-5 text-xs text-gray-400">*Terms and conditions apply</p>
         </div>
     </div>
     <script>
@@ -47,6 +129,18 @@
         function closeOnly() {
             window.parent.postMessage('closePopupOnly', '*');
         }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const button = document.querySelector('.shine-effect');
+                setInterval(() => {
+                    button.classList.add('pulse-effect');
+                    setTimeout(() => {
+                        button.classList.remove('pulse-effect');
+                    }, 2000);
+                }, 10000);
+            }, 1000);
+        });
     </script>
 </body>
 </html>
