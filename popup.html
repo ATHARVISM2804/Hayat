@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Exclusive Offer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body { height: 100%; }
+        body { overflow: hidden; }
+        .animate-fade-in {
+            animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .text-Hayat-gold { color: #c8a876; }
+        .bg-Hayat-gold { background-color: #c8a876; }
+        .from-Hayat-gold { --tw-gradient-from: #c8a876; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(200 168 118 / 0)); }
+        .to-Hayat-dark { --tw-gradient-to: #2c3e50; }
+        .bg-Hayat-dark { background-color: #2c3e50; }
+        .from-Hayat-dark { --tw-gradient-from: #2c3e50; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(44 62 80 / 0)); }
+    </style>
+</head>
+<body class="h-full flex items-center justify-center bg-gradient-to-br from-Hayat-gold/20 via-white to-Hayat-dark/10 p-4">
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center border border-Hayat-gold/30 animate-fade-in">
+        <button onclick="closeOnly()" aria-label="Close popup" class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-gray-100 hover:bg-gray-200 transition-colors w-9 h-9 rounded-full flex items-center justify-center shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-Hayat-gold to-Hayat-dark flex items-center justify-center mb-4 shadow-lg">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <h3 class="text-2xl font-display font-semibold mb-2 text-Hayat-dark tracking-wide">Exclusive Offer!</h3>
+            <p class="text-gray-600 mb-6 text-base">Be among the <span class="text-Hayat-gold font-semibold">first 100</span> to make an inquiry and receive a special reward.</p>
+            <button onclick="sendClose()" class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark hover:from-Hayat-dark hover:to-Hayat-gold text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all hover:-translate-y-1 flex items-center gap-2 mx-auto">
+                <span>Claim Now</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </button>
+        </div>
+    </div>
+    <script>
+        function sendClose() {
+            window.parent.postMessage('closePopup', '*');
+        }
+        function closeOnly() {
+            window.parent.postMessage('closePopupOnly', '*');
+        }
+    </script>
+</body>
+</html>

@@ -340,6 +340,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css"/>
 </head>
 <body class="font-sans text-gray-800 leading-relaxed">
+
+    <div id="popupContainer" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <iframe id="popupFrame" src="popup.html" class="bg-white rounded-lg w-11/12 max-w-md h-80 shadow-lg"></iframe>
+    </div>
     <!-- Header -->
    <header class="fixed px-5 lg:px-0 flex items-center justify-center top-0 w-full h-24 z-50 bg-white/95 backdrop-blur-md shadow-lg">
         <div class="max-w-7xl mx-auto w-full">
@@ -2214,7 +2218,7 @@
                     </div>
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
-                        <input id="enquire-popup-phone" type="tel" placeholder="Enter phone number" required class="w-[150%] px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                        <input id="enquire-popup-phone" type="tel" placeholder="Enter phone number" required class="w-[110%] md:w-[150%] px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                     </div>
                     <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors">
                         Enquire Now
@@ -2248,7 +2252,7 @@
                     </div>
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
-                        <input id="brochure-phone" name="phone" type="tel" required placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                        <input id="brochure-phone" name="phone" type="tel" required placeholder="Phone Number" class="w-[110%] md:w-[150%] px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
                     </div>
                     <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors">
                         Download Now

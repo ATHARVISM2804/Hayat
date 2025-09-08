@@ -584,3 +584,32 @@ function initMap() {
 // Make initMap globally available for Google Maps API callback
 window.initMap = initMap;
 
+
+document.addEventListener('DOMContentLoaded', () => {
+            // Always show popup on page load
+            document.getElementById('popupContainer').classList.remove('hidden');
+        });
+
+        function closePopup() {
+            document.getElementById('popupContainer').classList.add('hidden');
+        }
+
+        // Listen for messages from popup.html
+        window.addEventListener('message', (event) => {
+            if (event.data === 'closePopup') {
+                closePopup();
+                // Open enquiry modal after closing popup
+                const enquireModal = document.getElementById('enquireModal');
+                const enquireModalContent = document.getElementById('enquireModalContent');
+                if (enquireModal && enquireModalContent) {
+                    enquireModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        enquireModalContent.classList.remove('scale-95', 'opacity-0');
+                        enquireModalContent.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+                    document.body.classList.add('overflow-hidden');
+                }
+            } else if (event.data === 'closePopupOnly') {
+                closePopup();
+            }
+        });
