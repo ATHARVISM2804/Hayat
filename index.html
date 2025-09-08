@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-datee    
+    
     <!-- Primary Meta Tags -->
     <title>HAYAT by Dubai South | Luxury 3-5 Bedroom Townhouses for Sale | Nature-Inspired Community</title>
     <meta name="title" content="HAYAT by Dubai South | Luxury 3-5 Bedroom Townhouses for Sale | Nature-Inspired Community">
@@ -38,6 +38,33 @@ datee
     <meta name="geo.position" content="24.896308;55.161132">
     <meta name="ICBM" content="24.896308, 55.161132">
     
+        
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration - MUST come after Tailwind CSS script -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'Hayat-gold': '#c8a876',
+                        'Hayat-dark': '#2c3e50',
+                        'Hayat-green': '#7d8471',
+                        'Hayat-light-green': '#a8b896'
+                    },
+                    fontFamily: {
+                        'sans': ['Raleway', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif']
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 11px -3px rgba(0, 0, 0, 0.07)'
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Structured Data for Real Estate -->
     <script type="application/ld+json">
     {
@@ -121,6 +148,7 @@ datee
     }
     </script>
     
+    
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -132,7 +160,6 @@ datee
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .gradient-border {
@@ -944,6 +971,449 @@ datee
             <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">HAYAT Dubai South Gallery</h2>
             <p class="text-center max-w-3xl mx-auto text-lg text-gray-600 mb-8">Explore stunning visuals of HAYAT townhouses and community amenities</p>
             <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12">
+    
+    <div id="fitnessModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 transform transition-all scale-95 opacity-0">
+            <div class="absolute top-4 right-4 z-20">
+                <button class="modal-close text-white hover:text-Hayat-gold bg-black/30 hover:bg-black/50 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <!-- Using the same image as the card -->
+            <div class="h-80 relative overflow-hidden">
+                <img src="./dubaisouthproperties.ae-1757233108963/fitness.jpeg" alt="Fitness Center" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-4 left-8 right-8">
+                    <div class="inline-flex items-center gap-3 bg-Hayat-gold/90 text-white px-4 py-2 rounded-lg">
+                        <i class="fas fa-dumbbell text-xl"></i>
+                        <span class="text-xl">Fitness Center</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Fitness Center</h2>
+                <div class="mb-6 pb-6 border-b border-gray-200">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Our state-of-the-art fitness center is designed to inspire and motivate your workout routine. With premium equipment and expert trainers, achieving your fitness goals has never been more accessible.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The center features cardio zones, strength training areas, functional fitness spaces, and dedicated studios for classes ranging from yoga to high-intensity interval training.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Equipment</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Latest cardio machines with entertainment</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Comprehensive free weight section</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Dedicated stretching and functional areas</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Studio spaces for classes and training</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-Hayat-dark font-display">Services</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Personal training sessions</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Group fitness classes daily</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Fitness assessments and planning</span>
+                            </li>
+                            <li class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-check-circle text-Hayat-gold"></i>
+                                <span>Nutrition consultation services</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 text-white px-6 py-3 rounded modal-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="restaurantsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10">
+            <div class="absolute top-4 right-4">
+                <button class="modal-close bg-black/30 text-white w-8 h-8 rounded-full flex items-center justify-center"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="h-80 relative overflow-hidden">
+                <img src="./dubaisouthproperties.ae-1757233108963/Gallery8.jpeg" alt="Restaurants" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-4 left-8">
+                    <div class="inline-flex items-center gap-3 bg-Hayat-gold/90 text-white px-4 py-2 rounded-lg"><i class="fas fa-utensils"></i><span class="text-xl">Retail & Dining</span></div>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Retail, Dining & Essential Services</h2>
+                <p class="text-lg text-gray-700 mb-4">From fine dining restaurants to convenient everyday essentials, our community brings everything you need within walking distance.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Features</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Gourmet restaurants</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Retail outlets</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Cafés & lounges</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Services</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> 24/7 convenience stores</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Delivery services</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Pharmacy & essentials</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 text-white px-6 py-3 rounded modal-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Relaxation Modal -->
+    <div id="relaxationModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10">
+            <div class="absolute top-4 right-4"><button class="modal-close bg-black/30 text-white w-8 h-8 rounded-full"><i class="fas fa-times"></i></button></div>
+            <div class="h-80 relative">
+                <img src="./dubaisouthproperties.ae-1757233108963/detail.jpeg" alt="Relaxation Zone" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-4 left-8"><div class="inline-flex bg-Hayat-gold/90 px-4 py-2 rounded-lg text-white"><i class="fas fa-spa"></i><span>Relaxation Zone</span></div></div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Dedicated Zone for Relaxation & Gathering</h2>
+                <p class="text-lg text-gray-700 mb-4">Thoughtfully designed lounges, gardens, and social spaces to foster connections and relaxation in a serene setting.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Features</h3>
+                        <ul class="space-y-3"><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Landscaped lounge areas</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Open-air gathering spaces</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Private seating pods</li></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Services</h3>
+                        <ul class="space-y-3"><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Event hosting</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Relaxation lounges</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Concierge assistance</li></ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 text-white px-6 py-3 rounded modal-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Playzone Modal -->
+    <div id="playzoneModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10">
+            <div class="absolute top-4 right-4"><button class="modal-close bg-black/30 text-white w-8 h-8 rounded-full"><i class="fas fa-times"></i></button></div>
+            <div class="h-80 relative">
+                <img src="./dubaisouthproperties.ae-1757233108963/playzone.jpeg" alt="Playzone" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-4 left-8"><div class="inline-flex bg-Hayat-gold/90 px-4 py-2 rounded-lg text-white"><i class="fas fa-child"></i><span>Playzone</span></div></div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Playzone and Recreation Areas</h2>
+                <p class="text-lg text-gray-700 mb-4">Vibrant spaces where children and families can bond, play, and enjoy recreational activities in a safe and engaging environment.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Features</h3>
+                        <ul class="space-y-3"><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Safe play equipment</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Indoor play areas</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Outdoor adventure zones</li></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Services</h3>
+                        <ul class="space-y-3"><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Supervised play sessions</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Birthday & events</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Childcare support</li></ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 text-white px-6 py-3 rounded modal-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Park Modal -->
+    <div id="parkModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden modal-container">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10">
+            <div class="absolute top-4 right-4">
+                <button class="modal-close bg-black/30 text-white w-8 h-8 rounded-full flex items-center justify-center"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="h-80 relative overflow-hidden">
+                <img src="./dubaisouthproperties.ae-1757233108963/Educational Hub.jpeg" alt="Park and Trails" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="absolute bottom-4 left-8">
+                    <div class="inline-flex items-center gap-3 bg-Hayat-gold/90 text-white px-4 py-2 rounded-lg">
+                        <i class="fas fa-tree"></i>
+                        <span>Parks & Trails</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-3xl font-semibold mb-4 text-Hayat-dark font-display">Park and Walking Trails</h2>
+                <p class="text-lg text-gray-700 mb-4">Enjoy serene green spaces and well-designed walking trails that connect you with nature while promoting wellness.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Features</h3>
+                        <ul class="space-y-3"><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Shaded walking trails</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Picnic lawns</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Jogging tracks</li></ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-3 text-Hayat-dark">Services</h3>
+                        <ul class="space-y-3"><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Outdoor yoga sessions</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Community events</li><li class="flex gap-3"><i class="fas fa-check-circle text-Hayat-gold"></i> Guided nature walks</li></ul>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 text-white px-6 py-3 rounded modal-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features And Amenities Section -->
+   <section id="features-amenities" class="py-16 md:py-20 bg-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark section-heading">Features And Amenities</h2>
+                <div class="w-24 h-1 bg-Hayat-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+                <!-- Balcony -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Balcony.png" alt="Balcony" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 448 512\'><path fill=\'%23333\' d=\'M128 32H32A32 32 0 0 0 0 64v64a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zm0 96H32V64h96zm288-96h-96a32 32 0 0 0-32 32v64a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zm0 96h-96V64h96zm-288 96H32a32 32 0 0 0-32 32v64a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32v-64a32 32 0 0 0-32-32zm0 96H32v-64h96zm288-96h-96a32 32 0 0 0-32 32v64a32 32 0 0 0 32 32h96a32 32 0 0 0 32-32v-64a32 32 0 0 0-32-32zm0 96h-96v-64h96zM384 416H64a32 32 0 0 0-32 32v32h384v-32a32 32 0 0 0-32-32z\'/></svg>'">
+                            <i class="fas fa-border-all text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Balcony</h3>
+                </div>
+                
+                <!-- BBQ Area -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/BBQ-Area.png" alt="BBQ Area" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 512 512\'><path fill=\'%23333\' d=\'M127.1 146.5c1.3 7.7 8 13.5 16 13.5h16.5c9.8 0 17.6-8.5 16.3-18-3.8-28.2-16.4-54.2-36.6-74.7-14.4-14.7-23.6-33.3-26.4-53.5C111.8 5.9 105 0 96.8 0H80.4C70.6 0 63 8.5 64.1 18c3.9 31.9 15.5 61.5 34.1 84.8 9.3 11.7 15.9 25.4 18.9 43.7zM48 224h352c17.7 0 32-14.3 32-32v-16c0-35.3-28.7-64-64-64h-8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h8c13.2 0 24 10.8 24 24v16c0 4.4-3.6 8-8 8H48c-4.4 0-8-3.6-8-8v-16c0-13.2 10.8-24 24-24h8c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8h-8c-35.3 0-64 28.7-64 64v16c0 17.7 14.3 32 32 32zm128-96h32c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16zm-32 112c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32v-16c0-35.3-28.7-64-64-64h-8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h8c13.2 0 24 10.8 24 24v16c0 4.4-3.6 8-8 8H48c-4.4 0-8-3.6-8-8v-16c0-13.2 10.8-24 24-24h8c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8h-8c-35.3 0-64 28.7-64 64v16c0 17.7 14.3 32 32 32h8c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8h-8c-35.3 0-64 28.7-64 64v16c0 17.7 14.3 32 32 32zm288-96h-40v-16c0-4.4-3.6-8-8-8h-32c-4.4 0-8 3.6-8 8v16h-40c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h40v16c0 4.4 3.6 8 8 8h32c4.4 0 8-3.6 8-8v-16h40c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm-288 96H32a32 32 0 0 0-32 32v32h384v-32a32 32 0 0 0-32-32z\'/></svg>'">
+                            <i class="fas fa-fire text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">BBQ Area</h3>
+                </div>
+                
+                <!-- Children & Play Area -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Children-Play-Area.png" alt="Children & Play Area" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 512 512\'><path fill=\'%23333\' d=\'M169.5 80c17.4 0 31.5-14.1 31.5-31.5S186.9 17 169.5 17 138 31.1 138 48.5 152.1 80 169.5 80zM176 184h-16v-40h16c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16c-22.1 0-40 17.9-40 40v136c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h8c13.3 0 24-10.7 24-24s-10.7-24-24-24zm255.9 192L351 285.4c-11.1-19.1-31.7-31.4-54.3-31.4H336c-22.1 0-40-17.9-40-40v-40c0-22.1-17.9-40-40-40s-40 17.9-40 40v152c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h32c35.3 0 64 28.7 64 64h8c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-24.9c0-7.1 4.6-13.4 11.4-15.5 14.9-4.6 32.4 5.6 34.3 21.5l12.8 107.5c1.3 11.1 10.9 19.4 22.1 19.4h25.3c13.2 0 24-10.7 24-24 0-3.7-.9-7.2-2.4-10.4z\'/></svg>'">
+                            <i class="fas fa-child text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Children &<br>Play Area</h3>
+                </div>
+                
+                <!-- Gym Facilities -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Gym.png" alt="Gym Facilities" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 512\'><path fill=\'%23333\' d=\'M632 344.6L536.5 287.1c-11.9-7.2-27-6.4-38.1 1.8l-60.4 47.5c-2.2-.1-4.3-.2-6.5-.2-23.6 0-46.1 5.8-66.2 15.9L249.9 247.1c10.6-19.6 16.5-41.5 16.5-64.3 0-2.1-.1-4.3-.2-6.5l47.5-60.4c8.2-11.1 9-26.2 1.8-38.1L259 12.5c-5.8-9.6-16-15.5-27.2-15.8-11-.3-21.8 5-28.4 14.3L144.3 90.3C132.4 105.9 126.5 125.7 128 146c1.6 20.3 2.8 35.5 2.9 37.6 0 .4.1.8.1 1.2 0 88.2 71.8 160 160 160 .4 0 .8 0 1.2.1 2.1.1 17.3 1.3 37.6 2.9 20.3 1.5 40.1-4.4 55.7-16.3l79.3-59.1c9.3-6.9 14.6-17.5 14.3-28.4-.3-11.2-6.2-21.3-15.8-27.1l-30.3-18.4 16.6-21.1 96.1 57.7c4.9 2.9 7.4 8.5 6.2 14.1-1.3 5.5-5.6 9.4-10.9 9.9-7.5.6-13.7 6.8-14.2 14.3-.6 8.1 6 14.9 14 14.9h2.5c15.1-1.3 28.5-9.8 35.1-22.7 6.7-12.9 5.7-28.3-2.4-40.4zm-135.3 14.7l-20.5 15.2c-6.6 5.1-15.5 6.6-23.6 4.3-24.4-6.9-52.4-9.1-78.5-6.4-14.3 1.4-27.8-7.2-32.5-20.7l-7.5-21.4c3-1.9 5.9-4 8.6-6.4 5.4-4.2 11.2-8 17.5-11.3 5.7-3 11.7-5.5 18-7.4 3.1-1 6.2-1.7 9.4-2.5 6.8-1.8 13.9-2.8 21-3.4 3-.3 6-.4 9.1-.4 4 0 8.1.2 12.1.7 14.3 1.7 27.9 7 39.5 15l24.6 16.9c7.2 5 9.1 15 4.2 22.2-4.9 7.1-14.9 9-22.4 4.3l-24.6-16.9c-8.4-5.7-18.4-8.4-28.6-7.6-28.6 2.1-57.1 14.5-76.4 41.1-1.3 1.7-2.3 3.7-3.4 5.5-7.7 13.8-10.9 29.9-9.1 46.1 2.6 24.3 17.2 45.6 39 57.1 16.6 8.9 36.8 8.9 53.4-.1l84.2-44.9c11.9-5.6 25.7-6.2 38.1-1.6l86.8 28.9c10.1 3.4 15.5 14.2 12.2 24.2-3.4 10-14.2 15.5-24.3 12.2l-86.8-28.9c-19.7-7.4-41.8-6.3-60.8 2.9l-84.2 44.9c-24 12.6-52 12.7-76 .1C129.8 392.6 104 353.3 99.2 309.4c-2.3-21.7.3-43.8 7.6-63.8L232.1 353c21.7 19 49.4 29.9 77.6 29.9 12.4 0 24.8-2 36.8-5.8 42.3-13.8 76.3-46 90.6-83.8.9-2.4 1.7-4.7 2.5-7.1l8.2-9.7c4.3-3.5 10.7-3 14.4.9s2.9 10.7-1.3 14.4z\'/></svg>'">
+                            <i class="fas fa-dumbbell text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Gym<br>Facilities</h3>
+                </div>
+                
+                <!-- Leisure -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Leisure-Family-Area.png" alt="Leisure" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 512\'><path fill=\'%23333\' d=\'M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z\'/></svg>'">
+                            <i class="fas fa-users text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Leisure &<br>Family Area</h3>
+                </div>
+                
+                <!-- Shopping Complex -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Shoping-Mall.png" alt="Shopping Complex" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 576 512\'><path fill=\'%23333\' d=\'M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM140 320h40v-16c0-4.4 3.6-8 8-8h32c4.4 0 8 3.6 8 8v16h40c4.4 0 8 3.6 8 8v48c0 4.4-3.6 8-8 8h-40v16c0 4.4-3.6 8-8 8h-32c-4.4 0-8-3.6-8-8v-16h-40c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h40v-16c0-4.4 3.6-8 8-8h32c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8h-32c-35.3 0-64 28.7-64 64v16c0 17.7 14.3 32 32 32h8c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8h-8v-24.9c0-7.1 4.6-13.4 11.4-15.5 14.9-4.6 32.4 5.6 34.3 21.5l12.8 107.5c1.3 11.1 10.9 19.4 22.1 19.4h25.3c13.2 0 24-10.7 24-24 0-3.7-.9-7.2-2.4-10.4z\'/></svg>'">
+                            <i class="fas fa-store text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Shopping<br>Complex</h3>
+                </div>
+                
+                <!-- Swimming Pool -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Pool.png" alt="Swimming Pool" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 512\'><path fill=\'%23333\' d=\'M624 416h-16c-26.04 0-45.8-8.42-56.09-17.9-8.9-8.21-19.66-14.1-31.77-14.1h-16.3c-12.11 0-22.87 5.89-31.77 14.1C461.8 407.58 442.04 416 416 416s-45.8-8.42-56.09-17.9c-8.9-8.21-19.66-14.1-31.77-14.1h-16.3c-12.11 0-22.87 5.89-31.77 14.1C269.8 407.58 250.04 416 224 416s-45.8-8.42-56.09-17.9c-8.9-8.21-19.66-14.1-31.77-14.1h-16.3c-12.11 0-22.87 5.89-31.77 14.1C77.8 407.58 58.04 416 32 416H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h16c38.62 0 72.72-12.19 96-31.84 23.28 19.66 57.38 31.84 96 31.84s72.72-12.19 96-31.84c23.28 19.66 57.38 31.84 96 31.84s72.72-12.19 96-31.84c23.28 19.66 57.38 31.84 96 31.84h16c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zm-400-32v-96h192v96c19.12 0 30.86-6.16 34.39-9.42 9.17-8.46 19.2-14.34 29.61-18.07V128c0-17.64 14.36-32 32-32s32 14.36 32 32v16c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-16c0-52.94-43.06-96-96-96s-96 43.06-96 96v96H224v-96c0-17.64 14.36-32 32-32s32 14.36 32 32v16c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-16c0-52.94-43.06-96-96-96s-96 43.06-96 96v228.5c10.41 3.73 20.44 9.62 29.61 18.07 3.53 3.27 15.27 9.43 34.39 9.43z\'/></svg>'">
+                            <i class="fas fa-swimming-pool text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Swimming<br>Pool</h3>
+                </div>
+                
+                <!-- Restaurants -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-16 h-16 flex items-center justify-center">
+                            <img src="./Assets/Icons/Restaurants.png" alt="Restaurants" class="w-12 h-12" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 544 512\'><path fill=\'%23333\' d=\'M344 288c-13.25 0-24 10.74-24 24 0 13.25 10.75 24 24 24s24-10.75 24-24c0-13.26-10.75-24-24-24zm-192 0c-13.25 0-24 10.74-24 24 0 13.25 10.75 24 24 24s24-10.75 24-24c0-13.26-10.75-24-24-24zm192-64c17.67 0 32 14.33 32 32h32c0-35.3-28.7-64-64-64s-64 28.7-64 64h32c0-17.67 14.33-32 32-32zm-192 0c17.67 0 32 14.33 32 32h32c0-35.3-28.7-64-64-64s-64 28.7-64 64h32c0-17.67 14.33-32 32-32zm368-136c0-13.26-10.75-24-24-24h-88V8c0-4.42-3.58-8-8-8h-80c-4.42 0-8 3.58-8 8v56h-88c-13.25 0-24 10.74-24 24s10.75 24 24 24h272c13.25 0 24-10.74 24-24zM320 8h32v56h-32V8zM112 224c-44.18 0-80 35.82-80 80s35.82 80 80 80 80-35.82 80-80-35.82-80-80-80zm0 112c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32zm320-112c-44.18 0-80 35.82-80 80s35.82 80 80 80 80-35.82 80-80-35.82-80-80-80zm0 112c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32z\'/></svg>'">
+                            <i class="fas fa-utensils text-gray-700 text-4xl hidden"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-Hayat-dark font-medium">Restaurants</h3>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <!-- Payment Plan Section (Replaces Analysis Section) -->
+    <section id="payment-plan" class="py-16 md:py-24 bg-white mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">Investment Opportunity</span>
+                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark clipped-gold-underline section-heading">PAYMENT PLAN</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">A flexible payment structure designed to make your investment journey smooth and convenient.</p>
+            </div>
+            
+            <!-- Payment Plan Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                <!-- Down Payment Card -->
+                <div class="bg-white rounded-xl shadow-premium overflow-hidden transform transition-all hover:-translate-y-2 duration-300 border border-gray-100 h-full">
+                    <div class="bg-gradient-to-r from-Hayat-gold/90 to-Hayat-gold p-6 text-center">
+                        <h3 class="text-5xl font-bold text-white mb-1">5%</h3>
+                        <p class="text-white/90 text-lg">Down Payment</p>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-3 px-4 text-left">Initial booking amount to secure your property</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Due on signing</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- During Construction Card -->
+                <div class="bg-white rounded-xl shadow-premium overflow-hidden transform transition-all hover:-translate-y-2 duration-300 border border-gray-100 h-full">
+                    <div class="bg-gradient-to-r from-Hayat-dark/90 to-Hayat-dark p-6 text-center">
+                        <h3 class="text-5xl font-bold text-white mb-1">55%</h3>
+                        <p class="text-white/90 text-lg">During Construction</p>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <td class="py-3 px-4 text-left">Installments spread throughout the construction period</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Quarterly payments</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- On Completion Card -->
+                <div class="bg-white rounded-xl shadow-premium overflow-hidden transform transition-all hover:-translate-y-2 duration-300 border border-gray-100 h-full">
+                    <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-gold/80 p-6 text-center">
+                        <h3 class="text-5xl font-bold text-white mb-1">20%</h3>
+                        <p class="text-white/90 text-lg">On Completion</p>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <td class="py-3 px-4 text-left">Payment due upon project completion and handover</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Due May 2028</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- After Completion Card -->
+                <div class="bg-white rounded-xl shadow-premium overflow-hidden transform transition-all hover:-translate-y-2 duration-300 border border-gray-100 h-full">
+                    <div class="bg-gradient-to-r from-Hayat-dark/90 to-Hayat-dark p-6 text-center">
+                        <h3 class="text-5xl font-bold text-white mb-1">20%</h3>
+                        <p class="text-white/90 text-lg">After Completion</p>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-full">
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <td class="py-3 px-4 text-left">Post-handover payments distributed over time</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                        <td class="py-3 px-4 text-left font-medium text-Hayat-dark">Over 24 months</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <!-- Detailed Payment Table -->
+            
+            
+            <!-- Get Detailed Payment Plan Button -->
+            <div class="text-center">
+                <a href="#" class="inline-flex items-center px-8 py-4 bg-Hayat-gold hover:bg-Hayat-gold/80 text-white rounded-lg shadow-md hover:shadow-xl transition-all gap-2 text-lg font-medium">
+                    <span>GET DETAILED PAYMENT PLAN</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Gallery Section -->
+    <section id="gallery" class="py-16 md:py-20 bg-gray-50 mobile-py">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Project Gallery</h2>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12">
                 <button class="gallery-filter active bg-Hayat-gold text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="all">All</button>
                 <button class="gallery-filter bg-white border border-Hayat-gold text-Hayat-gold hover:bg-Hayat-gold hover:text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="exterior">Exterior</button>
                 <button class="gallery-filter bg-white border border-Hayat-gold text-Hayat-gold hover:bg-Hayat-gold hover:text-white px-4 md:px-6 py-2 md:py-3 rounded-full transition-colors text-sm" data-filter="interior">Interior</button>
@@ -1105,10 +1575,10 @@ datee
     </section> -->
 
     <!-- Featured Properties -->
-    <section id="properties" class="bg-gray-50 mobile-py">
+    <section id="properties" class="  bg-gray-50 mobile-py">
         <div class="max-w-6xl mx-auto px-4 sm:px-5">
-            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">HAYAT Dubai South Properties for Sale</h2>
-            <p class="text-center max-w-3xl mx-auto text-lg text-gray-600 mb-12">Luxury 3, 4 & 5 bedroom townhouses with flexible payment plans</p>
+            <h2 class="text-center text-3xl md:text-5xl mb-10 md:mb-12 text-Hayat-dark section-heading">Featured Properties</h2>
+            
             <!-- Payment Plan and Property Information -->
             <div class="mb-16 space-y-8">
                 <!-- First Row: Payment Plan and Townhouse Details -->
@@ -1442,6 +1912,7 @@ datee
         </div>
     </section>
             
+    </div>  
     <!-- Services Section
     <section id="services" class="py-16 md:py-20 bg-gray-50 mobile-py">
         <div class="max-w-6xl mx-auto px-4 sm:px-5"></div>
@@ -1472,12 +1943,12 @@ datee
     </section> -->
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-white mobile-py">
+    <section id="contact" class=" bg-white mobile-py">
         <div class="max-w-6xl mx-auto px-4 sm:px-5">
             <div class="text-center mb-12 md:mb-16">
-                <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">Ready to Invest?</span>
-                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark clipped-gold-underline section-heading">Contact HAYAT Dubai South</h2>
-                <p class="max-w-3xl mx-auto text-lg text-gray-600">Get in touch with our Dubai South real estate experts for personalized assistance</p>
+                <span class="text-Hayat-gold uppercase tracking-widest text-sm font-medium">Get In Touch</span>
+                <h2 class="text-3xl md:text-5xl font-display mb-4 text-Hayat-dark clipped-gold-underline section-heading">CONTACT US</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">Our dedicated team is ready to assist you with any inquiries about Hayat properties and investment opportunities.</p>
             </div>
             
             <div class="bg-white shadow-premium rounded-xl overflow-hidden mb-20">
@@ -1650,7 +2121,7 @@ datee
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-Hayat-dark to-gray-800 text-white py-12 md:py-16">
+<footer class="bg-gradient-to-r from-Hayat-dark to-gray-800 text-white py-12 md:py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-5">
     <!-- Footer Top Section -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10 md:mb-12">
@@ -1769,9 +2240,9 @@ datee
     </div>
 
     <!-- Footer Bottom -->
-    <div class="pt-6 md:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="pt-6 md:pt-8 border-t  border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="text-center w-full md:text-left">
-        <p class="text-gray-400 text-center">&copy; 2024 HAYAT by Dubai South. Premium townhouses for sale in Dubai South, UAE. All rights reserved.</p>
+        <p class="text-gray-400 text-center">&copy; 2024 Hayat Real Estate. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -1801,28 +2272,16 @@ datee
             <div class="p-8">
                 <form class="space-y-5">
                     <div>
-                        <label class="block mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Full Name *</label>
-                        <div class="relative">
-                            <i class="fas fa-user absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                            <input type="text" placeholder="Enter your name" required
-                                class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
-                        </div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name <span class="text-red-500">*</span></label>
+                        <input type="text" placeholder="John Deo" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <div>
-                        <label class="block mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Email Address *</label>
-                        <div class="relative">
-                            <i class="fas fa-envelope absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                            <input type="email" placeholder="Enter your email" required
-                                class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
-                        </div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span class="text-red-500">*</span></label>
+                        <input type="email" placeholder="johndeo@gmail.com" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <div>
-                        <label class="block mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Phone Number *</label>
-                        <div class="relative">
-                            <i class="fas fa-phone absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                            <input id="enquire-popup-phone" type="tel" placeholder="Enter phone number" required
-                                class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
-                        </div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
+                        <input id="enquire-popup-phone" type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base">
                     </div>
                     <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors">
                         Enquire Now
