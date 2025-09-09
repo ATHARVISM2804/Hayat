@@ -592,14 +592,17 @@
                         <h3 class="text-base sm:text-lg font-display font-medium mb-1">Get Project Details</h3>
                         <p class="text-xs opacity-80">First 100 registrations get special pricing</p>
                     </div>
-                    <form class="p-4 sm:p-6 space-y-4 sm:space-y-5">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="p-4 sm:p-6 space-y-4 sm:space-y-5">
+                        <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                        <input type="hidden" name="subject" value="Hero Section Enquiry - HAYAT Dubai South">
                         <div>
                             <label class="block mb-1 sm:mb-2 text-Hayat-dark font-medium text-xs sm:text-sm">Full Name
                                 *</label>
                             <div class="relative">
                                 <i
                                     class="fas fa-user absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                                <input type="text" placeholder="Enter your name" required
+                                <input type="text" name="name" placeholder="Enter your name" required
                                     class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
                             </div>
                         </div>
@@ -609,7 +612,7 @@
                             <div class="relative">
                                 <i
                                     class="fas fa-envelope absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                                <input type="email" placeholder="Enter your email" required
+                                <input type="email" name="email" placeholder="Enter your email" required
                                     class="w-full px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
                             </div>
                         </div>
@@ -619,7 +622,7 @@
                             <div class="relative w-full">
                                 <i
                                     class="fas fa-phone absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs sm:text-sm"></i>
-                                <input id="enquire-phone" type="tel" placeholder="Enter phone number" required
+                                <input id="enquire-phone" name="phone" type="tel" placeholder="Enter phone number" required
                                     class="w-[135%] px-3 sm:px-4 py-2 sm:py-3 pl-9 sm:pl-11 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/50 focus:border-Hayat-gold text-sm sm:text-base transition-all">
                             </div>
                         </div>
@@ -1023,11 +1026,11 @@
 
             <!-- Get Detailed Payment Plan Button -->
             <div id="open-popup" class="text-center">
-                <a href="#"
+                <button
                     class="inline-flex items-center px-8 py-4 bg-Hayat-gold hover:bg-Hayat-gold/80 text-white rounded-lg shadow-md hover:shadow-xl transition-all gap-2 text-lg font-medium">
                     <span>GET DETAILED PAYMENT PLAN</span>
                     <i class="fas fa-arrow-right"></i>
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -1929,7 +1932,8 @@
 
                         <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
                             <!-- Replace with your actual Web3Forms Access Key -->
-                            <input type="hidden" name="access_key" value="083f985c-be77-48a0-8344-d142ada281c3">
+                            <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
+                            <input type="hidden" name="subject" value="Contact Form - HAYAT Dubai South">
 
                             <!-- Honeypot (hidden) -->
                             <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
@@ -1985,7 +1989,11 @@
                             </div>
 
                             <!-- Message -->
-
+                            <div>
+                                <label class="block mb-2 text-Hayat-dark font-medium text-sm">Message</label>
+                                <textarea name="message" placeholder="Tell us about your requirements..."
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base resize-none" rows="4"></textarea>
+                            </div>
 
                             <!-- Privacy -->
                             <div class="flex items-center gap-2 mt-3">
@@ -2185,8 +2193,9 @@
             </div>
             <div class="p-8">
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
-                    <input type="hidden" name="access_key" value="083f985c-be77-48a0-8344-d142ada281c3">
+                    <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
                     <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                    <input type="hidden" name="subject" value="Enquire Now Modal - HAYAT Dubai South">
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" placeholder="John Deo" required
@@ -2228,9 +2237,10 @@
             </div>
             <div class="p-8">
                 <form id="brochureForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
-                    <input type="hidden" name="access_key" value="083f985c-be77-48a0-8344-d142ada281c3">
+                    <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
                     <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
                     <input type="hidden" name="downloadType" id="downloadTypeField" value="brochure">
+                    <input type="hidden" name="subject" value="Brochure Download Request - HAYAT Dubai South">
                     <div>
                         <label class="block mb-2 text-Hayat-dark font-medium text-sm">Full Name <span
                                 class="text-red-500">*</span></label>
@@ -2260,6 +2270,44 @@
                         class="inline-block bg-Hayat-gold hover:bg-Hayat-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
                         Click here if your download does not start
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Plan Download Modal -->
+    <div id="paymentPlanModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+        <div class="fixed inset-0 bg-black/70 backdrop-blur-sm modal-overlay"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 transition-all duration-300 scale-100 opacity-100">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-Hayat-gold bg-gray-100 hover:bg-gray-200 transition-colors w-9 h-9 rounded-full flex items-center justify-center modal-close" id="paymentPlanModalClose" aria-label="Close">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="bg-gradient-to-r from-Hayat-gold to-Hayat-dark text-white p-6 rounded-t-2xl text-center">
+                <h2 class="text-2xl font-display font-semibold mb-1">Get Detailed Payment Plan</h2>
+                <p class="text-sm opacity-80">Submit your details to download the payment plan PDF</p>
+            </div>
+            <div class="p-8">
+                <form id="paymentPlanForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                    <input type="hidden" name="access_key" value="e4b93377-3cef-4f51-a4f5-558fa14f9acf">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                    <input type="hidden" name="subject" value="Payment Plan Download Request - HAYAT Dubai South">
+                    <div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Email <span class="text-red-500">*</span></label>
+                        <input type="email" name="email" required placeholder="you@email.com" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-Hayat-dark font-medium text-sm">Phone <span class="text-red-500">*</span></label>
+                        <input id="paymentplan-phone" name="phone" type="tel" required placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-Hayat-gold/40 focus:border-Hayat-gold text-base transition-all">
+                    </div>
+                    <button type="submit" class="bg-Hayat-gold hover:bg-Hayat-dark text-white w-full py-3 rounded-lg font-semibold text-lg transition-colors">Download Now</button>
+                </form>
+                <div id="paymentPlanSuccess" class="hidden text-center mt-6">
+                    <p class="text-Hayat-dark font-medium mb-4">Thank you! Your download will start shortly.</p>
+                    <a id="paymentPlanPdfLink" href="./Assets/HAYATbyDubaiSouth-PaymentPlan.pdf" download class="inline-block bg-Hayat-gold hover:bg-Hayat-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">Click here if your download does not start</a>
                 </div>
             </div>
         </div>
@@ -2355,28 +2403,109 @@
             // Brochure form submit handler
             document.getElementById('brochureForm')?.addEventListener('submit', function (e) {
                 e.preventDefault();
+                
+                const formData = new FormData(this);
+                const downloadType = formData.get('downloadType');
+                
+                // Submit form to Web3Forms
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Hide form, show success
+                        document.getElementById('brochureForm').classList.add('hidden');
+                        document.getElementById('brochureSuccess').classList.remove('hidden');
 
-                // Get the download type
-                const downloadType = document.getElementById('downloadTypeField').value;
+                        // Set the correct download link based on type
+                        const downloadLink = document.getElementById('brochurePdfLink');
+                        if (downloadType === 'masterplan') {
+                            downloadLink.href = "./Assets/FACTSHEET-1.pdf";
+                            downloadLink.setAttribute('download', 'HAYAT-FACTSHEET.pdf');
+                        } else {
+                            downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
+                            downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
+                        }
 
-                // Hide form, show success
-                document.getElementById('brochureForm').classList.add('hidden');
-                document.getElementById('brochureSuccess').classList.remove('hidden');
-
-                // Set the correct download link based on type
-                const downloadLink = document.getElementById('brochurePdfLink');
-                if (downloadType === 'masterplan') {
-                    downloadLink.href = "./Assets/FACTSHEET-1.pdf";
-                    downloadLink.setAttribute('download', 'HAYAT-FACTSHEET.pdf');
-                } else {
-                    downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
-                    downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
-                }
-
-                // Start download automatically
-                setTimeout(function () {
-                    downloadLink.click();
-                }, 500);
+                        // Start download automatically
+                        setTimeout(function () {
+                            downloadLink.click();
+                        }, 500);
+                    } else {
+                        alert('There was an error submitting the form. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                });
+            });
+            
+            // Add form success handling for all Web3Forms
+            const forms = document.querySelectorAll('form[action="https://api.web3forms.com/submit"]');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    const brochureForm = document.getElementById('brochureForm');
+                    // Skip if it's the brochure form (handled separately)
+                    if (this === brochureForm) return;
+                    
+                    e.preventDefault();
+                    
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalText = submitButton.innerHTML;
+                    
+                    // Show loading state
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitButton.disabled = true;
+                    
+                    const formData = new FormData(this);
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success message
+                            this.innerHTML = `
+                                <div class="text-center py-8">
+                                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-check text-green-500 text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Thank You!</h3>
+                                    <p class="text-gray-600">Your message has been sent successfully. We'll get back to you soon.</p>
+                                </div>
+                            `;
+                            
+                            // Close modal if it's a modal form
+                            const modal = this.closest('.fixed[id*="Modal"]');
+                            if (modal) {
+                                setTimeout(() => {
+                                    modal.classList.add('hidden');
+                                    document.body.classList.remove('overflow-hidden');
+                                    // Reset form after closing
+                                    setTimeout(() => {
+                                        this.reset();
+                                        submitButton.innerHTML = originalText;
+                                        submitButton.disabled = false;
+                                        this.innerHTML = this.innerHTML; // Reset form HTML
+                                    }, 300);
+                                }, 2000);
+                            }
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitButton.innerHTML = originalText;
+                        submitButton.disabled = false;
+                        alert('There was an error sending your message. Please try again.');
+                    });
+                });
             });
         });
     </script>
