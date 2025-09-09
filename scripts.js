@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all modules
     initMobileNav();
     initNavbarScroll();
     initModals();
@@ -10,42 +9,40 @@ document.addEventListener('DOMContentLoaded', function () {
     initEnquireModal();
     initPhoneInputsAndBrochureModal();
     initMap();
-    initFormHandling(); // Add form handling initialization
+    initFormHandling(); 
 });
 
-// Form handling module
 function initFormHandling() {
     const forms = document.querySelectorAll('form[action="https://api.web3forms.com/submit"]');
-    
+
     forms.forEach(form => {
-        form.addEventListener('submit', async function(e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
-            // Skip if it's the brochure form (handled separately)
+
+           
             const brochureForm = document.getElementById('brochureForm');
             if (this === brochureForm) return;
-            
+
             const submitButton = this.querySelector('button[type="submit"]');
             if (!submitButton) return;
-            
+
             const originalButtonText = submitButton.innerHTML;
             const formFields = this.querySelectorAll('input, textarea, select');
-            
-            // Disable form while submitting
+
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             formFields.forEach(field => field.disabled = true);
-            
+
             try {
                 const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     body: new FormData(this)
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
-                    // Show success message
+                    
                     const successDiv = document.createElement('div');
                     successDiv.className = 'text-center py-4';
                     successDiv.innerHTML = `
@@ -55,14 +52,14 @@ function initFormHandling() {
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Thank You!</h3>
                         <p class="text-gray-600">Your message has been sent successfully.</p>
                     `;
-                    
-                    // Clear and reset form
+
+                   
                     this.reset();
                     const formContent = this.innerHTML;
                     this.innerHTML = '';
                     this.appendChild(successDiv);
+
                     
-                    // Restore form after 3 seconds
                     setTimeout(() => {
                         this.innerHTML = formContent;
                         const newSubmitButton = this.querySelector('button[type="submit"]');
@@ -76,7 +73,6 @@ function initFormHandling() {
                 }
             } catch (error) {
                 console.error('Error:', error);
-                // Re-enable form
                 submitButton.disabled = false;
                 submitButton.innerHTML = originalButtonText;
                 formFields.forEach(field => field.disabled = false);
@@ -92,41 +88,33 @@ function initMobileNav() {
 
     if (navToggle && mobileMenu) {
         navToggle.addEventListener('click', function () {
-            // Toggle mobile navigation
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('active');
-
-            // Animate toggle button
             const spans = navToggle.querySelectorAll('span');
             if (mobileMenu.classList.contains('hidden')) {
-                // Reset to hamburger
                 spans[0].classList.remove('rotate-45', 'translate-y-1.5', 'absolute');
                 spans[1].classList.remove('opacity-0');
                 spans[2].classList.remove('-rotate-45', '-translate-y-1.5', 'absolute');
             } else {
-                // Transform to X
                 spans[0].classList.add('rotate-45', 'translate-y-1.5', 'absolute');
                 spans[1].classList.add('opacity-0');
                 spans[2].classList.add('-rotate-45', '-translate-y-1.5', 'absolute');
             }
         });
 
-        // Close mobile menu when clicking on a navigation link
         const mobileNavLinks = mobileMenu.querySelectorAll('a.mobile-nav-item');
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', function (event) {
-                event.preventDefault(); // ✅ Fix: properly reference event
+                event.preventDefault(); 
 
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('active');
 
-                // Reset toggle button to hamburger
                 const spans = navToggle.querySelectorAll('span');
                 spans[0].classList.remove('rotate-45', 'translate-y-1.5', 'absolute');
                 spans[1].classList.remove('opacity-0');
                 spans[2].classList.remove('-rotate-45', '-translate-y-1.5', 'absolute');
 
-                // Scroll to section with offset for fixed header
                 const targetId = this.getAttribute('href');
                 if (targetId && targetId.startsWith('#')) {
                     const targetSection = document.querySelector(targetId);
@@ -298,7 +286,6 @@ function initBackToTop() {
 }
 
 function initSmoothScrolling() {
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]:not(.mobile-nav-item)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -422,7 +409,6 @@ function initEnquireModal() {
 }
 
 function initPhoneInputsAndBrochureModal() {
-    // Initialize intl-tel-input for popup (modal)
     var enquirePopupPhone = document.getElementById('enquire-popup-phone');
     if (enquirePopupPhone && window.intlTelInput) {
         window.intlTelInput(enquirePopupPhone, {
@@ -430,8 +416,7 @@ function initPhoneInputsAndBrochureModal() {
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
         });
     }
-    
-    // Initialize intl-tel-input for right inquiry form
+
     var enquirePhone = document.getElementById('enquire-phone');
     if (enquirePhone && window.intlTelInput) {
         window.intlTelInput(enquirePhone, {
@@ -439,8 +424,7 @@ function initPhoneInputsAndBrochureModal() {
             utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
         });
     }
-    
-    // Initialize intl-tel-input for contact page
+
     var contactPhone = document.getElementById('contact-phone');
     if (contactPhone && window.intlTelInput) {
         window.intlTelInput(contactPhone, {
@@ -449,7 +433,6 @@ function initPhoneInputsAndBrochureModal() {
         });
     }
 
-    // Initialize intl-tel-input for brochure form
     var brochurePhone = document.getElementById('brochure-phone');
     if (brochurePhone && window.intlTelInput) {
         window.intlTelInput(brochurePhone, {
@@ -458,12 +441,10 @@ function initPhoneInputsAndBrochureModal() {
         });
     }
 
-    // Brochure Modal logic
     function openBrochureModal(downloadType = 'brochure') {
         document.getElementById('brochureModal').classList.remove('hidden');
         document.body.classList.add('overflow-hidden');
-        
-        // Update modal content based on download type
+
         if (downloadType === 'masterplan') {
             document.getElementById('brochureModalTitle').textContent = 'Download Master Plan';
             document.getElementById('brochureModalDescription').textContent = 'Get the detailed master plan after submitting your details';
@@ -482,35 +463,31 @@ function initPhoneInputsAndBrochureModal() {
             document.getElementById('downloadTypeField').value = 'brochure';
         }
     }
-    
+
     function closeBrochureModal() {
         document.getElementById('brochureModal').classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
-        // Reset form and success message
         document.getElementById('brochureForm').reset();
         document.getElementById('brochureForm').classList.remove('hidden');
         document.getElementById('brochureSuccess').classList.add('hidden');
     }
-    
-    // Download brochure navigation buttons
-    document.getElementById('downloadBrochureNavBtn')?.addEventListener('click', function(e) {
+
+    document.getElementById('downloadBrochureNavBtn')?.addEventListener('click', function (e) {
         e.preventDefault();
         openBrochureModal('brochure');
     });
-    
-    document.getElementById('downloadBrochureNavBtnMobile')?.addEventListener('click', function(e) {
+
+    document.getElementById('downloadBrochureNavBtnMobile')?.addEventListener('click', function (e) {
         e.preventDefault();
         openBrochureModal('brochure');
     });
-    
-    // Payment Plan popup button
-    document.getElementById('open-popup')?.addEventListener('click', function(e) {
+
+    document.getElementById('open-popup')?.addEventListener('click', function (e) {
         e.preventDefault();
         openBrochureModal('locationguide');
     });
-    
-    // Explore Amenities button opens Enquire modal
-    document.getElementById('explore-amenities')?.addEventListener('click', function(e) {
+
+    document.getElementById('explore-amenities')?.addEventListener('click', function (e) {
         e.preventDefault();
         const enquireModal = document.getElementById('enquireModal');
         const enquireModalContent = document.getElementById('enquireModalContent');
@@ -521,46 +498,39 @@ function initPhoneInputsAndBrochureModal() {
         }, 10);
         document.body.classList.add('overflow-hidden');
     });
-    
-    // Master Plan download buttons
+
     document.querySelectorAll('.download-master-plan').forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
             openBrochureModal('masterplan');
         });
     });
-    
-    // Modal close events
+
     document.getElementById('brochureModalClose')?.addEventListener('click', closeBrochureModal);
     document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', closeBrochureModal);
 
-    // Brochure form submit handler
-    document.getElementById('brochureForm')?.addEventListener('submit', async function(e) {
+    document.getElementById('brochureForm')?.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const submitButton = this.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.innerHTML;
         submitButton.disabled = true;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        
+
         const formData = new FormData(this);
         const downloadType = document.getElementById('downloadTypeField').value;
-        
+
         try {
-            // Submit form to Web3Forms first
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
             });
-            
+
             const data = await response.json();
-            
+
             if (data.success) {
-                // Hide form, show success
                 document.getElementById('brochureForm').classList.add('hidden');
                 document.getElementById('brochureSuccess').classList.remove('hidden');
-                
-                // Set the correct download link based on type
                 const downloadLink = document.getElementById('brochurePdfLink');
                 if (downloadType === 'masterplan') {
                     downloadLink.href = "./Assets/FACTSHEET-1.pdf";
@@ -575,9 +545,7 @@ function initPhoneInputsAndBrochureModal() {
                     downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
                     downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
                 }
-                // Trigger download once
                 downloadLink.click();
-                // Reset button after short delay (for user feedback)
                 setTimeout(() => {
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
@@ -593,15 +561,14 @@ function initPhoneInputsAndBrochureModal() {
         }
     });
 
-    // Also reset the button when closing the modal
-    document.getElementById('brochureModalClose')?.addEventListener('click', function() {
+    document.getElementById('brochureModalClose')?.addEventListener('click', function () {
         const submitButton = document.querySelector('#brochureForm button[type="submit"]');
         if (submitButton) {
             submitButton.disabled = false;
             submitButton.innerHTML = 'Download Now';
         }
     });
-    document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', function() {
+    document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', function () {
         const submitButton = document.querySelector('#brochureForm button[type="submit"]');
         if (submitButton) {
             submitButton.disabled = false;
@@ -610,13 +577,10 @@ function initPhoneInputsAndBrochureModal() {
     });
 }
 
-// Google Maps initialization
 function initMap() {
-    // Only initialize if map element exists
     const mapElement = document.getElementById('map');
     if (!mapElement) return;
 
-    // Map options - centered at Dubai Production City
     const mapOptions = {
         center: { lat: 25.3463, lng: 55.4209 },
         zoom: 14,
@@ -628,35 +592,32 @@ function initMap() {
             {
                 "featureType": "all",
                 "elementType": "labels.text.fill",
-                "stylers": [{"color": "#444444"}]
+                "stylers": [{ "color": "#444444" }]
             },
             {
                 "featureType": "administrative.locality",
                 "elementType": "labels.text.fill",
-                "stylers": [{"color": "#2c3e50"}]
+                "stylers": [{ "color": "#2c3e50" }]
             },
             {
                 "featureType": "poi",
                 "elementType": "all",
-                "stylers": [{"visibility": "off"}]
+                "stylers": [{ "visibility": "off" }]
             },
             {
                 "featureType": "road",
                 "elementType": "all",
-                "stylers": [{"saturation": -100}, {"lightness": 45}]
+                "stylers": [{ "saturation": -100 }, { "lightness": 45 }]
             },
             {
                 "featureType": "water",
                 "elementType": "all",
-                "stylers": [{"color": "#c8a876"}, {"visibility": "on"}]
+                "stylers": [{ "color": "#c8a876" }, { "visibility": "on" }]
             }
         ]
     };
 
-    // Create the map
     const map = new google.maps.Map(mapElement, mapOptions);
-
-    // Add a marker
     const marker = new google.maps.Marker({
         position: { lat: 25.3463, lng: 55.4209 },
         map: map,
@@ -668,46 +629,231 @@ function initMap() {
         }
     });
 
-    // Add an info window
     const infoWindow = new google.maps.InfoWindow({
         content: '<div style="padding: 8px; text-align: center;"><strong>Hayat Real Estate</strong><br>403, our nest real estate galadari building<br>Dubai Production City, Dubai, UAE</div>'
     });
 
-    // Open info window when marker is clicked
     marker.addListener('click', () => {
         infoWindow.open(map, marker);
     });
 }
 
-// Make initMap globally available for Google Maps API callback
 window.initMap = initMap;
 
 
 document.addEventListener('DOMContentLoaded', () => {
-            // Always show popup on page load
-            document.getElementById('popupContainer').classList.remove('hidden');
-        });
+    document.getElementById('popupContainer').classList.remove('hidden');
+});
 
-        function closePopup() {
-            document.getElementById('popupContainer').classList.add('hidden');
+function closePopup() {
+    document.getElementById('popupContainer').classList.add('hidden');
+}
+
+window.addEventListener('message', (event) => {
+    if (event.data === 'closePopup') {
+        closePopup();
+        const enquireModal = document.getElementById('enquireModal');
+        const enquireModalContent = document.getElementById('enquireModalContent');
+        if (enquireModal && enquireModalContent) {
+            enquireModal.classList.remove('hidden');
+            setTimeout(() => {
+                enquireModalContent.classList.remove('scale-95', 'opacity-0');
+                enquireModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.classList.add('overflow-hidden');
         }
+    } else if (event.data === 'closePopupOnly') {
+        closePopup();
+    }
+});
 
-        // Listen for messages from popup.html
-        window.addEventListener('message', (event) => {
-            if (event.data === 'closePopup') {
-                closePopup();
-                // Open enquiry modal after closing popup
-                const enquireModal = document.getElementById('enquireModal');
-                const enquireModalContent = document.getElementById('enquireModalContent');
-                if (enquireModal && enquireModalContent) {
-                    enquireModal.classList.remove('hidden');
-                    setTimeout(() => {
-                        enquireModalContent.classList.remove('scale-95', 'opacity-0');
-                        enquireModalContent.classList.add('scale-100', 'opacity-100');
-                    }, 10);
-                    document.body.classList.add('overflow-hidden');
-                }
-            } else if (event.data === 'closePopupOnly') {
-                closePopup();
-            }
+document.addEventListener('DOMContentLoaded', function () {
+    var enquirePopupPhone = document.getElementById('enquire-popup-phone');
+    if (enquirePopupPhone && window.intlTelInput) {
+        window.intlTelInput(enquirePopupPhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
         });
+    }
+    var enquirePhone = document.getElementById('enquire-phone');
+    if (enquirePhone && window.intlTelInput) {
+        window.intlTelInput(enquirePhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+    var contactPhone = document.getElementById('contact-phone');
+    if (contactPhone && window.intlTelInput) {
+        window.intlTelInput(contactPhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+    function openBrochureModal(downloadType = 'brochure') {
+        document.getElementById('brochureModal').classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+
+        if (downloadType === 'masterplan') {
+            document.getElementById('brochureModalTitle').textContent = 'Download Master Plan/';
+            document.getElementById('brochureModalDescription').textContent = 'Get the detailed master plan after submitting your details';
+            document.getElementById('downloadTypeField').value = 'masterplan';
+        } else {
+            document.getElementById('brochureModalTitle').textContent = 'Download Brochure';
+            document.getElementById('brochureModalDescription').textContent = 'Get the full project brochure after submitting your details';
+            document.getElementById('downloadTypeField').value = 'brochure';
+        }
+    }
+
+    function closeBrochureModal() {
+        document.getElementById('brochureModal').classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        document.getElementById('brochureForm').reset();
+        document.getElementById('brochureForm').classList.remove('hidden');
+        document.getElementById('brochureSuccess').classList.add('hidden');
+    }
+
+    document.getElementById('downloadBrochureNavBtn')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        openBrochureModal('brochure');
+    });
+
+    document.getElementById('downloadBrochureNavBtnMobile')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        openBrochureModal('brochure');
+    });
+
+    document.querySelectorAll('.download-master-plan').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            openBrochureModal('masterplan');
+        });
+    });
+
+    document.getElementById('brochureModalClose')?.addEventListener('click', closeBrochureModal);
+    document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', closeBrochureModal);
+
+    var brochurePhone = document.getElementById('brochure-phone');
+    if (brochurePhone && window.intlTelInput) {
+        window.intlTelInput(brochurePhone, {
+            initialCountry: "ae",
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+    }
+
+    const forms = document.querySelectorAll('form[action="https://api.web3forms.com/submit"]');
+    forms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            const brochureForm = document.getElementById('brochureForm');
+            if (this === brochureForm) return;
+
+            e.preventDefault();
+
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        this.innerHTML = `
+                                <div class="text-center py-8">
+                                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-check text-green-500 text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Thank You!</h3>
+                                    <p class="text-gray-600">Your message has been sent successfully. We'll get back to you soon.</p>
+                                </div>
+                            `;
+
+                        const modal = this.closest('.fixed[id*="Modal"]');
+                        if (modal) {
+                            setTimeout(() => {
+                                modal.classList.add('hidden');
+                                document.body.classList.remove('overflow-hidden');
+                                setTimeout(() => {
+                                    this.reset();
+                                    submitButton.innerHTML = originalText;
+                                    submitButton.disabled = false;
+                                    this.innerHTML = this.innerHTML; 
+                                }, 300);
+                            }, 2000);
+                        }
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                    alert('There was an error sending your message. Please try again.');
+                });
+        });
+    });
+});
+
+
+function initMap() {
+    const mapOptions = {
+        center: { lat: 25.3463, lng: 55.4209 }, 
+        zoom: 14,
+        mapId: 'standard_map',
+        mapTypeControl: false,
+        fullscreenControl: false,
+        streetViewControl: false,
+        styles: [
+            {
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": [{ "color": "#444444" }]
+            },
+            {
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.fill",
+                "stylers": [{ "color": "#2c3e50" }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [{ "visibility": "off" }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [{ "saturation": -100 }, { "lightness": 45 }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [{ "color": "#c8a876" }, { "visibility": "on" }]
+            }
+        ]
+    };
+
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    const marker = new google.maps.Marker({
+        position: { lat: 25.3463, lng: 55.4209 },
+        map: map,
+        title: 'Hayat Real Estate',
+        animation: google.maps.Animation.DROP,
+        icon: {
+            url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+            scaledSize: new google.maps.Size(40, 40)
+        }
+    });
+    const infoWindow = new google.maps.InfoWindow({
+        content: '<div style="padding: 8px; text-align: center;"><strong>Hayat Real Estate</strong><br>123 Real Estate Ave<br>Business District, Sharjah, UAE</div>'
+    });
+
+    marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+    });
+}
