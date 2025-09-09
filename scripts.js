@@ -539,6 +539,7 @@ function initPhoneInputsAndBrochureModal() {
         e.preventDefault();
         
         const submitButton = this.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
         submitButton.disabled = true;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         
@@ -574,15 +575,35 @@ function initPhoneInputsAndBrochureModal() {
                     downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
                     downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
                 }
-                
                 // Trigger download once
                 downloadLink.click();
+                // Reset button after short delay (for user feedback)
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }, 1000);
             } else {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
             console.error('Error:', error);
             alert('There was an error processing your request. Please try again.');
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+        }
+    });
+
+    // Also reset the button when closing the modal
+    document.getElementById('brochureModalClose')?.addEventListener('click', function() {
+        const submitButton = document.querySelector('#brochureForm button[type="submit"]');
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Download Now';
+        }
+    });
+    document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', function() {
+        const submitButton = document.querySelector('#brochureForm button[type="submit"]');
+        if (submitButton) {
             submitButton.disabled = false;
             submitButton.innerHTML = 'Download Now';
         }
