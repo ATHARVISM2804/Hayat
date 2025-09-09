@@ -1,34 +1,90 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Mobile navigation toggle
+    // Initialize all modules
     initMobileNav();
-
-    // Handle navbar on scroll
     initNavbarScroll();
-
-    // Initialize modals
     initModals();
-
-    // Gallery filters
     initGalleryFilters();
-
-    // Back to top button
     initBackToTop();
-
-    // Smooth scrolling
     initSmoothScrolling();
-
-    // Community modals
     initCommunityModals();
-
-    // Enquire modal
     initEnquireModal();
-
-    // Initialize phone inputs and brochure modal
     initPhoneInputsAndBrochureModal();
-
-    // Initialize Google Maps
     initMap();
+    initFormHandling(); // Add form handling initialization
 });
+
+// Form handling module
+function initFormHandling() {
+    const forms = document.querySelectorAll('form[action="https://api.web3forms.com/submit"]');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Skip if it's the brochure form (handled separately)
+            const brochureForm = document.getElementById('brochureForm');
+            if (this === brochureForm) return;
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            if (!submitButton) return;
+            
+            const originalButtonText = submitButton.innerHTML;
+            const formFields = this.querySelectorAll('input, textarea, select');
+            
+            // Disable form while submitting
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            formFields.forEach(field => field.disabled = true);
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: new FormData(this)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Show success message
+                    const successDiv = document.createElement('div');
+                    successDiv.className = 'text-center py-4';
+                    successDiv.innerHTML = `
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Thank You!</h3>
+                        <p class="text-gray-600">Your message has been sent successfully.</p>
+                    `;
+                    
+                    // Clear and reset form
+                    this.reset();
+                    const formContent = this.innerHTML;
+                    this.innerHTML = '';
+                    this.appendChild(successDiv);
+                    
+                    // Restore form after 3 seconds
+                    setTimeout(() => {
+                        this.innerHTML = formContent;
+                        const newSubmitButton = this.querySelector('button[type="submit"]');
+                        if (newSubmitButton) {
+                            newSubmitButton.disabled = false;
+                            newSubmitButton.innerHTML = originalButtonText;
+                        }
+                    }, 3000);
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Re-enable form
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+                formFields.forEach(field => field.disabled = false);
+                alert('There was an error sending your message. Please try again.');
+            }
+        });
+    });
+}
 
 function initMobileNav() {
     const navToggle = document.querySelector('.nav-toggle');
@@ -479,36 +535,57 @@ function initPhoneInputsAndBrochureModal() {
     document.querySelector('#brochureModal .modal-overlay')?.addEventListener('click', closeBrochureModal);
 
     // Brochure form submit handler
-    document.getElementById('brochureForm')?.addEventListener('submit', function(e) {
+    document.getElementById('brochureForm')?.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Get the download type
+        const submitButton = this.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        
+        const formData = new FormData(this);
         const downloadType = document.getElementById('downloadTypeField').value;
         
-        // Hide form, show success
-        document.getElementById('brochureForm').classList.add('hidden');
-        document.getElementById('brochureSuccess').classList.remove('hidden');
-        
-        // Set the correct download link based on type
-        const downloadLink = document.getElementById('brochurePdfLink');
-        if (downloadType === 'masterplan') {
-            downloadLink.href = "./Assets/FACTSHEET-1.pdf";
-            downloadLink.setAttribute('download', 'HAYAT-FACTSHEET.pdf');
-        } else if (downloadType === 'paymentplan') {
-            downloadLink.href = "./Assets/HAYAT-PaymentPlan.pdf";
-            downloadLink.setAttribute('download', 'HAYAT-PaymentPlan.pdf');
-        } else if (downloadType === 'locationguide') {
-            downloadLink.href = "./Assets/HAYAT-LocationGuide.pdf";
-            downloadLink.setAttribute('download', 'HAYAT-LocationGuide.pdf');
-        } else {
-            downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
-            downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
+        try {
+            // Submit form to Web3Forms first
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Hide form, show success
+                document.getElementById('brochureForm').classList.add('hidden');
+                document.getElementById('brochureSuccess').classList.remove('hidden');
+                
+                // Set the correct download link based on type
+                const downloadLink = document.getElementById('brochurePdfLink');
+                if (downloadType === 'masterplan') {
+                    downloadLink.href = "./Assets/FACTSHEET-1.pdf";
+                    downloadLink.setAttribute('download', 'HAYAT-FACTSHEET.pdf');
+                } else if (downloadType === 'paymentplan') {
+                    downloadLink.href = "./Assets/HAYAT-PaymentPlan.pdf";
+                    downloadLink.setAttribute('download', 'HAYAT-PaymentPlan.pdf');
+                } else if (downloadType === 'locationguide') {
+                    downloadLink.href = "./Assets/HAYAT-LocationGuide.pdf";
+                    downloadLink.setAttribute('download', 'HAYAT-LocationGuide.pdf');
+                } else {
+                    downloadLink.href = "./Assets/HAYATbyDubaiSouth-brochure.pdf";
+                    downloadLink.setAttribute('download', 'HAYATbyDubaiSouth-brochure.pdf');
+                }
+                
+                // Trigger download once
+                downloadLink.click();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error processing your request. Please try again.');
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Download Now';
         }
-        
-        // Start download automatically
-        setTimeout(function() {
-            downloadLink.click();
-        }, 500);
     });
 }
 
